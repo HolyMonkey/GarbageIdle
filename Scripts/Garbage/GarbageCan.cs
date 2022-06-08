@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Data))]
 public class GarbageCan : MonoBehaviour
 {
     [SerializeField] private TakeReward _takeReward;
     [SerializeField] private FinishScene _finishScene;
 
+    private Data _data;
     private int _currentQuantity =0;
     private int _maxQuantity = 10;
     private int _totalAmountGarbage = 0;
@@ -26,10 +28,12 @@ public class GarbageCan : MonoBehaviour
 
     private void Start()
     {
-        _currentQuantity = GetSave(NameCurrentQantity, _currentQuantity);
-        _maxQuantity = GetSave(NameMaxQantity, _maxQuantity);
-        _totalAmountGarbage = GetSave(NameTotalAmountGarbage, _totalAmountGarbage);
-        _maxCount = GetSave(MaxCount, _maxCount);
+        _data = GetComponent<Data>();
+
+        _currentQuantity = _data.GetSave(NameCurrentQantity, _currentQuantity);
+        _maxQuantity = _data.GetSave(NameMaxQantity, _maxQuantity);
+        _totalAmountGarbage = _data.GetSave(NameTotalAmountGarbage, _totalAmountGarbage);
+        _maxCount = _data.GetSave(MaxCount, _maxCount);
         GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
     }
 
@@ -82,14 +86,5 @@ public class GarbageCan : MonoBehaviour
             _maxQuantity += 10;
             GarbageCountChanged?.Invoke(0, 1);
         }
-    }
-
-    private int GetSave(string name,int value)
-    {
-        if (PlayerPrefs.HasKey(name))
-        {
-            value = PlayerPrefs.GetInt(name);
-        }
-        return value;
     }
 }

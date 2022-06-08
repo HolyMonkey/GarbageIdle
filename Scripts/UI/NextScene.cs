@@ -5,18 +5,66 @@ using IJunior.TypedScenes;
 
 public class NextScene : MonoBehaviour
 {
+    IntegrationMetric _integrationMetric = new IntegrationMetric();
+
+    private int _levelIndex;
+    private float _startLevelTime;
+
+    private void Awake()
+    {
+        SetLevelIndex();
+    }
+
+    private void Start()
+    {
+        _startLevelTime = Time.time;
+    }
+
     public void NextSceneTwo()
     {
+        FinishLevel(_startLevelTime, _levelIndex);
+        int indexLevel = 2;
+        _levelIndex = indexLevel;
+        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
         SceneTwo.Load();
     }
 
     public void NextSceneThree()
     {
+        FinishLevel(_startLevelTime, _levelIndex);
+        int indexLevel = 3;
+        _levelIndex = indexLevel;
+        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
         SceneThree.Load();
     }
 
     public void NextSceneOne()
     {
+        FinishLevel(_startLevelTime,_levelIndex);
+        int indexLevel = 1;
+        _levelIndex = indexLevel;
+        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
         SampleScene.Load();
+    }
+
+    private void SetLevelIndex()
+    {
+        if (PlayerPrefs.HasKey("IndexLevelScene"))
+            _levelIndex = PlayerPrefs.GetInt("IndexLevelScene");
+        else
+            _levelIndex = 1;
+
+        _integrationMetric.OnLevelStart(_levelIndex);
+    }
+
+    private void FinishLevel(float startLevelTime,int levelIndex)
+    {
+        int completedLevelTime;
+        completedLevelTime = (int)(startLevelTime -=Time.time);
+
+        if(completedLevelTime <0)
+            completedLevelTime *= -1;
+
+        _integrationMetric.OnLevelComplete(completedLevelTime, levelIndex);
     }
 }

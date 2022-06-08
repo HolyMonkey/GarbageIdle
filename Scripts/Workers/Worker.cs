@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Movement))]
 public class Worker : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Worker : MonoBehaviour
     private float _speed = 2;
     private float _raiseSpeed = 5f;
 
-
+    private Data _data;
     private ValueHandler _player;
     private Transform _pointStart;
     private Transform _pointFinish;
@@ -22,24 +23,27 @@ public class Worker : MonoBehaviour
 
     private List<Garbage> _garbage = new List<Garbage>();
 
-    public const float JumpPower = 1f;
-    public const int QuantityJump = 1;
-    public const float Duration = 0.5f;
-    public const string IsRun = "IsRun";
-    public const string IsSlowRun = "IsSlowRun";
-    public const float PointX = -0.019f;
-    public const float PointY = 0.888f;
-    public const float PointZ = 0.288f;
-
     public Garbage Target => _target;
     public ParticleSystem ParticleSystem => _particleSystem;
     public bool _startPoint { get; private set; } = false;
     public bool _finishPoint { get; private set; } = false;
 
+    private const string SpeedWorker = "SpeedWorker";
+    private const string RaiseSpeed = "RaiseSpeed";
+    private const float JumpPower = 1f;
+    private const int QuantityJump = 1;
+    private const float Duration = 0.5f;
+    private const string IsRun = "IsRun";
+    private const string IsSlowRun = "IsSlowRun";
+    private const float PointX = -0.019f;
+    private const float PointY = 0.888f;
+    private const float PointZ = 0.288f;
+
     private void Start()
     {
-        if (PlayerPrefs.HasKey("SpeedWorker"))
-            _speed = PlayerPrefs.GetFloat("SpeedWorker");
+        _data = GetComponent<Data>();
+        _speed = _data.GetSaveFloat(SpeedWorker, _speed);
+        _raiseSpeed = _data.GetSaveFloat(RaiseSpeed, _raiseSpeed);
 
         _movement = GetComponent<Movement>();
         _animator = GetComponent<Animator>();

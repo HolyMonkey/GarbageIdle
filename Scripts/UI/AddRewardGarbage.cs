@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(Data))]
 public class AddRewardGarbage : MonoBehaviour
 {
     [SerializeField] private ValueHandler _valueHandler;
@@ -10,19 +11,32 @@ public class AddRewardGarbage : MonoBehaviour
     [SerializeField] private TMP_Text _textLevel;
     [SerializeField] private MoneyTransfer _moneyTransfer;
 
-    private float _money = 600;
-    private int _level = 0;
+    private Data _data;
 
+    private IntegrationMetric _integrationMetric = new IntegrationMetric();
 
     private List<Garbage> _garbage = new List<Garbage>();
 
+    private const string SaveNameMoney = "MoneyRewardGarbage";
+    private const string SaveNameLevel = "RewardLevelWorker";
+    private const string SaveNameAmount = "AmountMoney";
+    private const string SaveNameCount = "NumberUsesRevardGarbage";
+
+    private string _type = "improvement";
+    private string _name = "AddRewardGarbage";
+    private int _amount = 0;
+    private int _count = 0;
+    private float _money = 600;
+    private int _level = 0;
+
     private void Start()
     {
-        if (PlayerPrefs.HasKey("MoneyRewardGarbage") && PlayerPrefs.HasKey("RewardLevelWorker"))
-        {
-            _money = PlayerPrefs.GetFloat("MoneyRewardGarbage");
-            _level = PlayerPrefs.GetInt("RewardLevelWorker");
-        }
+        _data = GetComponent<Data>();
+
+        _amount = _data.GetSave(SaveNameAmount, _amount);
+        _money = _data.GetSaveFloat(SaveNameMoney, _money);
+        _level = _data.GetSave(SaveNameLevel, _level);
+        _count = _data.GetSave(SaveNameCount, _count);
 
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();
@@ -37,6 +51,11 @@ public class AddRewardGarbage : MonoBehaviour
     {
         if (_valueHandler.Money >= _money)
         {
+            _amount += (int)_money;
+            _count++;
+            _integrationMetric.OnSoftCurrencySpend(_type,_name,_amount,_count,(int)_money);
+            PlayerPrefs.SetInt("AmountMoney", _amount);
+            PlayerPrefs.SetInt("NumberUsesRevardGarbage", _count);
             _valueHandler.PayPurchase(_money);
             _level++;
             PlayerPrefs.SetInt("RewardLevelWorker", _level);
