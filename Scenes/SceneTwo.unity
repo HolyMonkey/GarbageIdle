@@ -315,7 +315,16 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.0000000012922883
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8080810082490282126, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080810082490282126, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7279539291591449177, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
 --- !u!114 &858617605 stripped
 MonoBehaviour:

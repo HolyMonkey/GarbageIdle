@@ -54,11 +54,11 @@ public class AddRewardGarbage : MonoBehaviour
             _amount += (int)_money;
             _count++;
             _integrationMetric.OnSoftCurrencySpend(_type,_name,_amount,_count,(int)_money);
-            PlayerPrefs.SetInt("AmountMoney", _amount);
-            PlayerPrefs.SetInt("NumberUsesRevardGarbage", _count);
+            PlayerPrefs.SetInt(SaveNameAmount, _amount);
+            PlayerPrefs.SetInt(SaveNameCount, _count);
             _valueHandler.PayPurchase(_money);
             _level++;
-            PlayerPrefs.SetInt("RewardLevelWorker", _level);
+            PlayerPrefs.SetInt(SaveNameLevel, _level);
 
             foreach (var item in _garbage)
             {
@@ -76,7 +76,7 @@ public class AddRewardGarbage : MonoBehaviour
     private void SetPrice()
     {
         _money += 400;
-        PlayerPrefs.SetFloat("MoneyRewardGarbage", _money);
+        PlayerPrefs.SetFloat(SaveNameMoney, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();
     }  

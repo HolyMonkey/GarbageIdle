@@ -10,7 +10,7 @@ public class TakeReward : MonoBehaviour
 
     private float _reward = 500;
 
-    private const string ScaleButton = "Scale";
+    private const string TakeRewardMoney = "TakeReward";
 
     private void Start()
     {
@@ -19,8 +19,8 @@ public class TakeReward : MonoBehaviour
         else
             gameObject.SetActive(false);
 
-        if (PlayerPrefs.HasKey("TakeReward"))
-            _reward = PlayerPrefs.GetFloat("TakeReward");
+        if (PlayerPrefs.HasKey(TakeRewardMoney))
+            _reward = PlayerPrefs.GetFloat(TakeRewardMoney);
     }
 
     public void Reward()
@@ -34,7 +34,7 @@ public class TakeReward : MonoBehaviour
     private void SetReward()
     {
         _reward += 500;
-        PlayerPrefs.SetFloat("TakeReward", _reward);
+        PlayerPrefs.SetFloat(TakeRewardMoney, _reward);
         gameObject.SetActive(false);
     }
 }

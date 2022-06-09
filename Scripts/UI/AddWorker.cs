@@ -50,7 +50,7 @@ public class AddWorker : MonoBehaviour
             _valueHandler.PayPurchase(_money);
             _spawner.Initilaze();
             _level++;
-            PlayerPrefs.SetInt("CountAddWorker", _level);
+            PlayerPrefs.SetInt(LevelAddWorker, _level);
             SetPrice();
         }
         else
@@ -62,6 +62,6 @@ public class AddWorker : MonoBehaviour
         _money += 500;
         _textLevel.text = "lvl." + _level;
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
-        PlayerPrefs.SetFloat("MoneyAddWorker", _money);
+        PlayerPrefs.SetFloat(MoneyAddWorker, _money);
     }
 }

@@ -49,7 +49,7 @@ public class SpeedWorkers : MonoBehaviour
             PlayerPrefs.SetInt(SaveNameCount, _count);
             _valueHandler.PayPurchase(_money);
             _level++;
-            PlayerPrefs.SetInt("SpeedLevel", _level);
+            PlayerPrefs.SetInt(SpeedLevel, _level);
             SetPrice();
 
             foreach (var item in _workers)
@@ -68,7 +68,7 @@ public class SpeedWorkers : MonoBehaviour
     {
         
         _money += 200;
-        PlayerPrefs.SetFloat("MoneySpeed", _money);
+        PlayerPrefs.SetFloat(MoneySpeed, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();
     }

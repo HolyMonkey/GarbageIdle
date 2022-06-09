@@ -10,6 +10,8 @@ public class NextScene : MonoBehaviour
     private int _levelIndex;
     private float _startLevelTime;
 
+    private const string LevelSceneIndex = "IndexLevelScene";
+
     private void Awake()
     {
         SetLevelIndex();
@@ -25,7 +27,7 @@ public class NextScene : MonoBehaviour
         FinishLevel(_startLevelTime, _levelIndex);
         int indexLevel = 2;
         _levelIndex = indexLevel;
-        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
+        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SceneTwo.Load();
     }
 
@@ -34,7 +36,7 @@ public class NextScene : MonoBehaviour
         FinishLevel(_startLevelTime, _levelIndex);
         int indexLevel = 3;
         _levelIndex = indexLevel;
-        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
+        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SceneThree.Load();
     }
 
@@ -43,14 +45,14 @@ public class NextScene : MonoBehaviour
         FinishLevel(_startLevelTime,_levelIndex);
         int indexLevel = 1;
         _levelIndex = indexLevel;
-        PlayerPrefs.SetInt("IndexLevelScene", _levelIndex);
+        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SampleScene.Load();
     }
 
     private void SetLevelIndex()
     {
-        if (PlayerPrefs.HasKey("IndexLevelScene"))
-            _levelIndex = PlayerPrefs.GetInt("IndexLevelScene");
+        if (PlayerPrefs.HasKey(LevelSceneIndex))
+            _levelIndex = PlayerPrefs.GetInt(LevelSceneIndex);
         else
             _levelIndex = 1;
 
