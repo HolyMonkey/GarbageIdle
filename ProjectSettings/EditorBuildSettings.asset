@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 6f77d2f76539ad940a048eabc1e4be8e
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SceneTwo.unity
+    guid: 5888a330422be9b4fa439d7f8c074d5b
+  - enabled: 1
+    path: Assets/Scenes/SceneThree.unity
+    guid: 418e112ef718bd149b0fecb522120695
+  - enabled: 1
+    path: Assets/Plugins/TypedScenes/Samples/SampleScene.unity
+    guid: 5b9ad0db4e4a32243ab75753a1524d5a
+  - enabled: 1
+    path: Assets/FacebookSDK/Examples/AccessTokenMenu.unity
+    guid: 67cb5b2387b8e4ec9b2fa69ad9510e9b
+  - enabled: 1
+    path: Assets/Epic Toon FX/Demo/Scenes/Extras/etfx_decal_test.unity
+    guid: 6dad6ea22f37cdc4783ddb9f84d5fd4a
+  - enabled: 1
+    path: Assets/Epic Toon FX/Demo/Scenes/etfx_cards.unity
+    guid: 855bb038b5077e74082152830a86f4fe
+  - enabled: 1
+    path: Assets/Epic Toon FX/Demo/Scenes/etfx_portals2.unity
+    guid: 86778e72f0ca2294eb01df38043aa08e
+  - enabled: 1
+    path: Assets/FacebookSDK/Examples/LogView.unity
+    guid: c07ff0bf6bea74c2eb681ac0cae44265
+  - enabled: 1
+    path: Assets/FacebookSDK/Examples/AppEvents.unity
+    guid: 68ab940fa15e34433bff18301686b080
+  - enabled: 1
+    path: Assets/FlatKit/Demos/[Demo] Car/Car___Scene___Set4.unity
+    guid: fd9c73812ef513548b385abead007d8a
+  m_configObjects: {}
