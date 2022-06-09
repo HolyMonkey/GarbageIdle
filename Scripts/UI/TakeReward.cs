@@ -10,6 +10,8 @@ public class TakeReward : MonoBehaviour
 
     private float _reward = 500;
 
+    private const string ScaleButton = "Scale";
+
     private void Start()
     {
         if (_garbageCan.CurrentQuantity >= _garbageCan.MaxQuantity)

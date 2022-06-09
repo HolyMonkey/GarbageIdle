@@ -58,10 +58,9 @@ public class GarbageCan : MonoBehaviour
         }
 
         if (_currentQuantity >= _maxQuantity)
+        {
             _takeReward.gameObject.SetActive(true);
-        else
-            return;
-
+        }
     }
 
     public void ResetMaxCount()
