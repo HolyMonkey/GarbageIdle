@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PointStart : MonoBehaviour
 {
-    private int _count = 100;
-
     private List<Garbage> _garbage = new List<Garbage>();
 
+    private SpawnerGarbage _spawnerGarbage;
+    private int _count = 100;
+    private bool _blankSheek = false;
     public int Count => _count;
+    public bool BlankSheet => _blankSheek;
 
     private void Awake()
     {
@@ -23,9 +25,10 @@ public class PointStart : MonoBehaviour
         ClearList();
     }
 
-    public void AddListGarbage(Garbage garbage)
+    public void AddListGarbage(Garbage garbage,SpawnerGarbage spawnerGarbage)
     {
         _garbage.Add(garbage);
+        _spawnerGarbage = spawnerGarbage;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,7 +48,10 @@ public class PointStart : MonoBehaviour
                 _garbage.RemoveAt(i);
                 _count--;
                 PlayerPrefs.SetInt("CountGarbage", _count);
-            }  
+            }
+
+            if (_garbage.Count == 0)
+                _blankSheek = true;
         }
     }
 }

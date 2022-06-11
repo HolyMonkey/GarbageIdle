@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 [RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Movement))]
@@ -9,13 +10,15 @@ public class Worker : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private TMP_Text _textMoney;
+    [SerializeField] private Animator _animatorTextMoney;
 
     private float _speed = 2;
     private float _raiseSpeed = 5f;
 
     private Data _data;
     private ValueHandler _player;
-    private Transform _pointStart;
+    private PointStart _pointStart;
     private Transform _pointFinish;
     private Transform _junkyard;
     private Movement _movement;
@@ -28,6 +31,7 @@ public class Worker : MonoBehaviour
     public bool _startPoint { get; private set; } = false;
     public bool _finishPoint { get; private set; } = false;
 
+    private const string AnimationMoneyUp = "MoneyUp";
     private const string SpeedWorker = "SpeedWorker";
     private const string RaiseSpeed = "RaiseSpeed";
     private const float JumpPower = 1f;
@@ -38,23 +42,39 @@ public class Worker : MonoBehaviour
     private const float PointX = -0.019f;
     private const float PointY = 0.888f;
     private const float PointZ = 0.288f;
+    private float _elepsedTim = 0;
+    private bool _moneyUpStop = false;
 
     private void Start()
     {
+        _textMoney.alpha = 0;
         _data = GetComponent<Data>();
         _speed = _data.GetSaveFloat(SpeedWorker, _speed);
         _raiseSpeed = _data.GetSaveFloat(RaiseSpeed, _raiseSpeed);
-
         _movement = GetComponent<Movement>();
         _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        SetDirection();
+        SpecifyingGoal();
     }
 
-    public void Init(Transform pointStart, Transform pointFinish, Transform junkyard,ValueHandler player)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out PointFinish pointFinish))
+        {
+            _finishPoint = true;
+            
+            _player.AddMoney(this);
+            _textMoney.text = "+" + Target.Price.ToString();
+            _textMoney.alpha = 1;
+            _animatorTextMoney.SetBool(AnimationMoneyUp, true);
+            _moneyUpStop = true;
+        }
+    }
+
+    public void Init(PointStart pointStart, Transform pointFinish, Transform junkyard,ValueHandler player)
     {
         _pointStart = pointStart;
         _pointFinish = pointFinish;
@@ -66,7 +86,7 @@ public class Worker : MonoBehaviour
     {
         _garbage = garbage;
         _startPoint = true;
-        EnableMove();
+        SetDirection();
     }
 
     public void SettingSpeed()
@@ -76,36 +96,44 @@ public class Worker : MonoBehaviour
         PlayerPrefs.SetFloat("RaiseSpeed", _raiseSpeed);
     }
 
-    private void SetDirection()
+    private void SpecifyingGoal()
     {
+
+        if (_moneyUpStop)
+        {
+            DeactivateAccountReplenishmentAnimation();
+        }
+
         if (_startPoint == false)
         {
             _animator.SetBool(IsRun, false);
             _animator.SetBool(IsSlowRun, true);
-            _movement.SetTarget(_pointStart,_speed,_raiseSpeed, this);
+            _movement.SetTarget(_pointStart.transform,_speed,_raiseSpeed, this);
         }
 
-        if(_target !=null)
+        if(_target != null && _target.Removed == false)
         {
-            Vector3 distans = transform.position - _target.transform.position;
-            var diff = distans.magnitude;
-
-            if (diff <=1.5f)
-            {
-                _animator.SetBool(IsSlowRun, false);
-                _animator.SetBool(IsRun, true);
-                _target.transform.SetParent(gameObject.transform);
-                _target.Rigidbody.isKinematic = true;
-                _target.transform.localPosition = new Vector3(PointX, PointY, PointZ);
-                _target.transform.localRotation = new Quaternion(0f, 0f, 0f,0f);
-                _movement.SetTarget(_pointFinish,_speed, _raiseSpeed, this);
-            }
+            DistanceGarbageCollection();
         }
 
-        if (_finishPoint)
-        {
-            _startPoint = false;
+        if(_finishPoint)
             Cast(_junkyard.position);
+    }
+
+    private void DistanceGarbageCollection()
+    {
+        Vector3 distans = transform.position - _target.transform.position;
+        var diff = distans.magnitude;
+
+        if (diff <= 1.5f)
+        {
+            _animator.SetBool(IsSlowRun, false);
+            _animator.SetBool(IsRun, true);
+            _target.transform.SetParent(gameObject.transform);
+            _target.Rigidbody.isKinematic = true;
+            _target.transform.localPosition = new Vector3(PointX, PointY, PointZ);
+            _target.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
+            _movement.SetTarget(_pointFinish, _speed, _raiseSpeed, this);
         }
     }
 
@@ -113,9 +141,10 @@ public class Worker : MonoBehaviour
     {
         _target.transform.parent = null;
         _target.transform.DOJump(target, JumpPower, QuantityJump, Duration);
+        _startPoint = false;
     }
 
-    private void EnableMove()
+    private void SetDirection()
     {
         _finishPoint = false;
         if (_startPoint)
@@ -123,25 +152,28 @@ public class Worker : MonoBehaviour
             _target = GetGarbagePosition(_garbage);
             _target.BeenSelected();
             _movement.SetTarget(_target.transform, _speed, _raiseSpeed,this);
-
-            if (_target == null|| _target.Removed)
-            {
-                gameObject.SetActive(false);
-            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DeactivateAccountReplenishmentAnimation()
     {
-        if(other.TryGetComponent(out PointFinish pointFinish))
+        _elepsedTim += Time.deltaTime;
+
+        if (_elepsedTim > 0.7f)
         {
-            _finishPoint = true;
-            _player.AddMoney(this);
+            _animatorTextMoney.SetBool(AnimationMoneyUp, false);
+            _textMoney.alpha = 0;
+            _moneyUpStop = false;
         }
     }
 
     private Garbage GetGarbagePosition(List<Garbage> garbages)
     {
+        if(_pointStart.BlankSheet)
+        {
+            gameObject.SetActive(false);
+            Debug.Log("Должен выключиться челик!");
+        }
         float distance = Mathf.Infinity;
         Garbage point = null;
         Vector3 position = transform.position;

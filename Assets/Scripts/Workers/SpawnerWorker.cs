@@ -6,7 +6,7 @@ public class SpawnerWorker : MonoBehaviour
 {
     [SerializeField] private Worker _prefabs;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Transform _pointStart;
+    [SerializeField] private PointStart _pointStart;
     [SerializeField] private Transform _pointFinish;
     [SerializeField] private Transform _junkyard;
     [SerializeField] private ValueHandler _valueHandler;

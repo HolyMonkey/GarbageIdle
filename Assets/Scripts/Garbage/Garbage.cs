@@ -9,8 +9,10 @@ public class Garbage : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _highlighted = false;
     private bool _removed = false;
+    private bool _visible = false;
     private int _price = 20;
 
+    public bool InVisible => _visible;
     public int Price => _price;
     public bool Removed => _removed;
     public bool Highlighted => _highlighted;
@@ -22,6 +24,16 @@ public class Garbage : MonoBehaviour
             _price = PlayerPrefs.GetInt("Price");
 
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void CheckVisibleGarbage()
+    {
+        _visible = true;
+    }
+
+    public void CheckInVisible()
+    {
+        _visible = false;
     }
 
     public void BeenSelected()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TakeReward : MonoBehaviour
@@ -7,8 +8,12 @@ public class TakeReward : MonoBehaviour
     [SerializeField] private ValueHandler _valueHandler;
     [SerializeField] private GarbageCan _garbageCan;
     [SerializeField] private Bar _bar;
+    [SerializeField] private TMP_Text _moneyInfoReward;
 
     private float _reward = 500;
+    private float _rewardInfo;
+
+    public float RewardInfo => _rewardInfo;
 
     private const string TakeRewardMoney = "TakeReward";
 
@@ -21,10 +26,13 @@ public class TakeReward : MonoBehaviour
 
         if (PlayerPrefs.HasKey(TakeRewardMoney))
             _reward = PlayerPrefs.GetFloat(TakeRewardMoney);
+
     }
 
     public void Reward()
     {
+        _rewardInfo = _reward;
+        _moneyInfoReward.gameObject.SetActive(true);
         _valueHandler.AddReward(_reward);
         _garbageCan.ResetProgress();
         _bar.RaiseLevel();

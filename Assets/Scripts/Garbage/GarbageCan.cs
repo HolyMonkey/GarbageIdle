@@ -18,7 +18,6 @@ public class GarbageCan : MonoBehaviour
 
     public int CurrentQuantity => _currentQuantity;
     public int MaxQuantity => _maxQuantity;
-
     public event Action<int, int> GarbageCountChanged;
 
     public const string NameCurrentQantity = "CurrentQantityGarbage";
@@ -37,6 +36,15 @@ public class GarbageCan : MonoBehaviour
         GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
     }
 
+    private void Update()
+    {
+        if(_totalAmountGarbage == 100)
+        {
+            _finishScene.OpenScrinFinish();
+            ResetMaxCount();
+        }
+    }
+
     public void AddCount()
     {
         _currentQuantity++;
@@ -50,12 +58,6 @@ public class GarbageCan : MonoBehaviour
         PlayerPrefs.SetInt("MaxQantity", _maxQuantity);
         PlayerPrefs.SetInt("MaxCount", _maxCount);
         GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
-
-        if (_maxCount == 0)
-        {
-            _finishScene.OpenScrinFinish();
-            ResetMaxCount();
-        }
 
         if (_currentQuantity >= _maxQuantity)
         {
