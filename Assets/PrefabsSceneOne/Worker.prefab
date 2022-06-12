@@ -5603,7 +5603,6 @@ MonoBehaviour:
   _animator: {fileID: 6493577870039842314}
   _particleSystem: {fileID: 4744518259798461907}
   _textMoney: {fileID: 3664123491957082784}
-  _animatorTextMoney: {fileID: 1207057082097183621}
 --- !u!54 &3248583649898760273
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6188,7 +6187,6 @@ GameObject:
   - component: {fileID: 4075756096002791460}
   - component: {fileID: 4221104501259868094}
   - component: {fileID: 3664123491957082784}
-  - component: {fileID: 1207057082097183621}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6312,25 +6310,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!95 &1207057082097183621
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8583593300866016927}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b82036ca930360d4b96bf2b67284d176, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8828321050329924713
 GameObject:
   m_ObjectHideFlags: 0

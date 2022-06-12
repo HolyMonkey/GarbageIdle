@@ -11,7 +11,6 @@ public class Worker : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private TMP_Text _textMoney;
-    [SerializeField] private Animator _animatorTextMoney;
 
     private float _speed = 2;
     private float _raiseSpeed = 5f;
@@ -31,7 +30,6 @@ public class Worker : MonoBehaviour
     public bool _startPoint { get; private set; } = false;
     public bool _finishPoint { get; private set; } = false;
 
-    private const string AnimationMoneyUp = "MoneyUp";
     private const string SpeedWorker = "SpeedWorker";
     private const string RaiseSpeed = "RaiseSpeed";
     private const float JumpPower = 1f;
@@ -64,13 +62,11 @@ public class Worker : MonoBehaviour
     {
         if (other.TryGetComponent(out PointFinish pointFinish))
         {
+            _elepsedTim = 0;
             _finishPoint = true;
-            
-            _player.AddMoney(this);
-            _textMoney.text = "+" + Target.Price.ToString();
-            _textMoney.alpha = 1;
-            _animatorTextMoney.SetBool(AnimationMoneyUp, true);
             _moneyUpStop = true;
+            _textMoney.alpha = 1;
+            _textMoney.text = "+" + Target.Price.ToString();
         }
     }
 
@@ -101,6 +97,7 @@ public class Worker : MonoBehaviour
 
         if (_moneyUpStop)
         {
+            _player.AddMoney(this);
             DeactivateAccountReplenishmentAnimation();
         }
 
@@ -150,8 +147,15 @@ public class Worker : MonoBehaviour
         if (_startPoint)
         {
             _target = GetGarbagePosition(_garbage);
-            _target.BeenSelected();
-            _movement.SetTarget(_target.transform, _speed, _raiseSpeed,this);
+            if(_target == null)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                _target.BeenSelected();
+                _movement.SetTarget(_target.transform, _speed, _raiseSpeed, this);
+            }
         }
     }
 
@@ -161,7 +165,6 @@ public class Worker : MonoBehaviour
 
         if (_elepsedTim > 0.7f)
         {
-            _animatorTextMoney.SetBool(AnimationMoneyUp, false);
             _textMoney.alpha = 0;
             _moneyUpStop = false;
         }
@@ -169,11 +172,6 @@ public class Worker : MonoBehaviour
 
     private Garbage GetGarbagePosition(List<Garbage> garbages)
     {
-        if(_pointStart.BlankSheet)
-        {
-            gameObject.SetActive(false);
-            Debug.Log("Должен выключиться челик!");
-        }
         float distance = Mathf.Infinity;
         Garbage point = null;
         Vector3 position = transform.position;

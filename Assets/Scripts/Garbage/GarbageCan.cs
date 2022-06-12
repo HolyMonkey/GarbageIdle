@@ -9,12 +9,13 @@ public class GarbageCan : MonoBehaviour
 {
     [SerializeField] private TakeReward _takeReward;
     [SerializeField] private FinishScene _finishScene;
+    [SerializeField] private PointStart _pointStart;
 
     private Data _data;
     private int _currentQuantity =0;
     private int _maxQuantity = 10;
     private int _totalAmountGarbage = 0;
-    private int _maxCount = 100;
+    private int _maxCount = 2;
 
     public int CurrentQuantity => _currentQuantity;
     public int MaxQuantity => _maxQuantity;
@@ -38,10 +39,10 @@ public class GarbageCan : MonoBehaviour
 
     private void Update()
     {
-        if(_totalAmountGarbage == 100)
+
+        if (_currentQuantity >= _maxQuantity)
         {
-            _finishScene.OpenScrinFinish();
-            ResetMaxCount();
+            _takeReward.gameObject.SetActive(true);
         }
     }
 
@@ -59,16 +60,20 @@ public class GarbageCan : MonoBehaviour
         PlayerPrefs.SetInt("MaxCount", _maxCount);
         GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
 
-        if (_currentQuantity >= _maxQuantity)
+        if (_totalAmountGarbage >= 100)
         {
-            _takeReward.gameObject.SetActive(true);
+            _finishScene.OpenScrinFinish();
+            ResetMaxCount();
         }
     }
 
     public void ResetMaxCount()
     {
+        _totalAmountGarbage = 0;
         _maxCount = 100;
         PlayerPrefs.SetInt("MaxCount", _maxCount);
+        PlayerPrefs.SetInt("TotalAmountGarbage", _totalAmountGarbage);
+        _pointStart.Reset(_maxCount);
     }
 
     public void ResetProgress()

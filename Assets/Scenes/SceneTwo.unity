@@ -498,11 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b51879abaae3b94f899b26ce12e2c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1055662069 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8650304194609591901, guid: 3080df3ff047de3468147b39f0cb9dc5, type: 3}
-  m_PrefabInstance: {fileID: 976547487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226196636
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +922,10 @@ PrefabInstance:
       propertyPath: _valueHandler
       value: 
       objectReference: {fileID: 1725076530}
+    - target: {fileID: 7090333388974948695, guid: d12b89a8a0b817a4b84102e9665ad3f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextSceneThree
+      objectReference: {fileID: 0}
     - target: {fileID: 7090333388979773413, guid: d12b89a8a0b817a4b84102e9665ad3f2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8.360657
@@ -1422,7 +1421,7 @@ PrefabInstance:
     - target: {fileID: 1543569132502769191, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: _pointStart
       value: 
-      objectReference: {fileID: 1055662069}
+      objectReference: {fileID: 1055662068}
     - target: {fileID: 1543569132502769191, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: _pointFinish
       value: 
@@ -1448,6 +1447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dumpster
       objectReference: {fileID: 0}
+    - target: {fileID: 4138486572964386187, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
+      propertyPath: _pointStart
+      value: 
+      objectReference: {fileID: 1055662068}
     - target: {fileID: 4138486572964386187, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: _takeReward
       value: 

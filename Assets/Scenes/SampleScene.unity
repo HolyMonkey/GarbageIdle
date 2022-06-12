@@ -566,11 +566,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1063574778 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8650304194609591901, guid: 3080df3ff047de3468147b39f0cb9dc5, type: 3}
-  m_PrefabInstance: {fileID: 8650304194120673959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1063574779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8650304194609591900, guid: 3080df3ff047de3468147b39f0cb9dc5, type: 3}
@@ -777,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 1543569132502769191, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: _pointStart
       value: 
-      objectReference: {fileID: 1063574778}
+      objectReference: {fileID: 1063574779}
     - target: {fileID: 1543569132502769191, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: _pointFinish
       value: 
@@ -910,6 +905,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366761004528246085, guid: 7aa1515bad9893c46a6a05437849bbf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366761004528246106, guid: 7aa1515bad9893c46a6a05437849bbf8, type: 3}
+      propertyPath: _count
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2366761004528246106, guid: 7aa1515bad9893c46a6a05437849bbf8, type: 3}
@@ -1200,6 +1199,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 317047475}
     - target: {fileID: 4138486572964386187, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
+      propertyPath: _pointStart
+      value: 
+      objectReference: {fileID: 1063574779}
+    - target: {fileID: 4138486572964386187, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: _takeReward
       value: 
       objectReference: {fileID: 1368088482}
@@ -1207,6 +1210,10 @@ PrefabInstance:
       propertyPath: _finishScene
       value: 
       objectReference: {fileID: 6527748299491807695}
+    - target: {fileID: 4138486572964386187, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
+      propertyPath: _spawnerGarbage
+      value: 
+      objectReference: {fileID: 1930707148}
     - target: {fileID: 4531855846368888892, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: m_RootOrder
       value: 4

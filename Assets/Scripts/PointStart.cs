@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Data))]
 public class PointStart : MonoBehaviour
 {
     private List<Garbage> _garbage = new List<Garbage>();
-
-    private SpawnerGarbage _spawnerGarbage;
+    private Data _data;
     private int _count = 100;
-    private bool _blankSheek = false;
     public int Count => _count;
-    public bool BlankSheet => _blankSheek;
 
-    private void Awake()
+    private const string NameCountGarbage = "CountGarbagePointStart";
+
+    private void Start()
     {
-        if (PlayerPrefs.HasKey("CountGarbage"))
-        {
-            _count = PlayerPrefs.GetInt("CountGarbage");
-        }
+        _data = GetComponent<Data>();
+
+        _count = _data.GetSave(NameCountGarbage, _count);
     }
 
     private void Update()
@@ -25,10 +24,15 @@ public class PointStart : MonoBehaviour
         ClearList();
     }
 
-    public void AddListGarbage(Garbage garbage,SpawnerGarbage spawnerGarbage)
+    public void Reset(int count)
+    {
+        _count = count +1;
+        PlayerPrefs.SetInt(NameCountGarbage, _count);
+    }
+
+    public void AddListGarbage(Garbage garbage)
     {
         _garbage.Add(garbage);
-        _spawnerGarbage = spawnerGarbage;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,11 +51,8 @@ public class PointStart : MonoBehaviour
             {
                 _garbage.RemoveAt(i);
                 _count--;
-                PlayerPrefs.SetInt("CountGarbage", _count);
+                PlayerPrefs.SetInt(NameCountGarbage, _count);
             }
-
-            if (_garbage.Count == 0)
-                _blankSheek = true;
         }
     }
 }
