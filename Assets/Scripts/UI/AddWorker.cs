@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Data))]
+[RequireComponent(typeof(Tapping))]
 public class AddWorker : MonoBehaviour
 {
     [SerializeField] private ValueHandler _valueHandler;
@@ -12,8 +13,10 @@ public class AddWorker : MonoBehaviour
     [SerializeField] private SpawnerWorker _spawner;
     [SerializeField] private MoneyTransfer _moneyTransfer;
 
-    private Data _data;
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
+
+    private Data _data;
+    private Tapping _tapping;
 
     private float _money = 500;
     private int _level = 0;
@@ -30,6 +33,7 @@ public class AddWorker : MonoBehaviour
     private void Start()
     {
         _data = GetComponent<Data>();
+        _tapping = GetComponent<Tapping>();
         _money = _data.GetSaveFloat(MoneyAddWorker, _money);
         _level = _data.GetSave(LevelAddWorker, _level);
         _spawner.AddCount(_level);
@@ -51,6 +55,7 @@ public class AddWorker : MonoBehaviour
             _spawner.Initilaze();
             _level++;
             PlayerPrefs.SetInt(LevelAddWorker, _level);
+            _tapping.EnableTapping();
             SetPrice();
         }
         else

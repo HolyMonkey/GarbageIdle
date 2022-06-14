@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Data))]
+[RequireComponent(typeof(Tapping))]
 public class AddRewardGarbage : MonoBehaviour
 {
     [SerializeField] private ValueHandler _valueHandler;
@@ -12,6 +14,7 @@ public class AddRewardGarbage : MonoBehaviour
     [SerializeField] private MoneyTransfer _moneyTransfer;
 
     private Data _data;
+    private Tapping _tapping;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
 
@@ -32,6 +35,7 @@ public class AddRewardGarbage : MonoBehaviour
     private void Start()
     {
         _data = GetComponent<Data>();
+        _tapping = GetComponent<Tapping>();
 
         _amount = _data.GetSave(SaveNameAmount, _amount);
         _money = _data.GetSaveFloat(SaveNameMoney, _money);
@@ -59,6 +63,7 @@ public class AddRewardGarbage : MonoBehaviour
             _valueHandler.PayPurchase(_money);
             _level++;
             PlayerPrefs.SetInt(SaveNameLevel, _level);
+            _tapping.EnableTapping();
 
             foreach (var item in _garbage)
             {
@@ -79,5 +84,5 @@ public class AddRewardGarbage : MonoBehaviour
         PlayerPrefs.SetFloat(SaveNameMoney, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();
-    }  
+    }
 }
