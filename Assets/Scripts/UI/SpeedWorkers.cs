@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Data))]
+[RequireComponent(typeof(Tapping))]
 public class SpeedWorkers : MonoBehaviour
 {
     [SerializeField] private ValueHandler _valueHandler;
@@ -14,6 +15,7 @@ public class SpeedWorkers : MonoBehaviour
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
     private List<Worker> _workers = new List<Worker>();
 
+    private Tapping _tapping;
     private Data _data;
     private float _money = 200;
     private int _level = 0;
@@ -30,6 +32,7 @@ public class SpeedWorkers : MonoBehaviour
     private void Start()
     {
         _data = GetComponent<Data>();
+        _tapping = GetComponent<Tapping>();
         _money = _data.GetSaveFloat(MoneySpeed, _money);
         _level = _data.GetSave(SpeedLevel, _level);
         _amount = _data.GetSave(SaveNameAmount, _amount);
@@ -50,6 +53,7 @@ public class SpeedWorkers : MonoBehaviour
             _valueHandler.PayPurchase(_money);
             _level++;
             PlayerPrefs.SetInt(SpeedLevel, _level);
+            _tapping.EnableTapping();
             SetPrice();
 
             foreach (var item in _workers)
