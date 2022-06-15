@@ -11,6 +11,7 @@ public class SpawnerWorker : MonoBehaviour
     [SerializeField] private Transform _junkyard;
     [SerializeField] private ValueHandler _valueHandler;
     [SerializeField] private SpeedWorkers _speedWorkers;
+    [SerializeField] private IncreaseMovementSpeed _increaseMovementSpeed;
 
     private int _count = 0;
     private float _elepsedTime = 0;
@@ -38,6 +39,7 @@ public class SpawnerWorker : MonoBehaviour
     {
         Worker spawned = Instantiate(_prefabs, _spawnPoint);
         spawned.Init(_pointStart, _pointFinish, _junkyard,_valueHandler);
+        _increaseMovementSpeed.AddWorker(spawned);
         _speedWorkers.AddListGarbage(spawned);
     }
 

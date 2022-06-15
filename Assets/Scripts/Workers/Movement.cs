@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Movement : MonoBehaviour
-{   
+{
     private Transform _target;
     private Worker _worker;
     private float _speed;
@@ -16,22 +15,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (_coroutine == null)
-            {
-                _coroutine = StartCoroutine(IncreaseSpeed());
-            }  
-            else
-            {
-                StopCoroutine(_coroutine);
-                StartCoroutine(IncreaseSpeed());
-            }
-        }
-        else
-        {
-            RunTarget(_target, _speed);
-        }
+        RunTarget(_target, _speed);
     }
 
     public void SetTarget(Transform target,float speed,float raiseSpeed,Worker worker)
@@ -40,6 +24,19 @@ public class Movement : MonoBehaviour
         _speed = speed;
         _raiseSpeed = raiseSpeed;
         _worker = worker;
+    }
+
+    public void AccelerationEmployee()
+    {
+        if (_coroutine == null)
+        {
+            _coroutine = StartCoroutine(IncreaseSpeed());
+        }
+        else
+        {
+            StopCoroutine(_coroutine);
+            StartCoroutine(IncreaseSpeed());
+        }
     }
 
     private void RunTarget(Transform target, float speed)

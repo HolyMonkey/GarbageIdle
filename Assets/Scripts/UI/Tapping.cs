@@ -45,7 +45,6 @@ public class Tapping : MonoBehaviour
             DisableTapping();
             EnableTapping();
         }
-       
     }
 
     public void DisableTapping()

@@ -13,8 +13,6 @@ public class TrecingCanvasMoneyUp : MonoBehaviour
     void Update()
     {
         Vector3 targetDistance = _camera.transform.position - transform.position;
-        //Vector3 Rotation = new Vector3(targetDistance.x, 0f, targetDistance.z);
-        //transform.rotation = Quaternion.LookRotation(-Rotation, Vector3.up);
 
         transform.forward = -targetDistance.normalized;
 

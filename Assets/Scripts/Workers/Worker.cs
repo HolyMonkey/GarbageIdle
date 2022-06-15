@@ -25,6 +25,7 @@ public class Worker : MonoBehaviour
 
     private List<Garbage> _garbage = new List<Garbage>();
 
+    public Movement Movement => _movement;
     public Garbage Target => _target;
     public ParticleSystem ParticleSystem => _particleSystem;
     public bool _startPoint { get; private set; } = false;
