@@ -34,8 +34,10 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            StopCoroutine(_coroutine);
-            StartCoroutine(IncreaseSpeed());
+            _elapsedTime = 0;
+
+            //StopCoroutine(_coroutine);
+            //StartCoroutine(IncreaseSpeed());
         }
     }
 
@@ -65,7 +67,9 @@ public class Movement : MonoBehaviour
             _elapsedTime += Time.deltaTime;
             yield return null;
         }
+
         _worker.ParticleSystem.Stop();
+        _coroutine = null;
     }
 
     private void Tracking()
