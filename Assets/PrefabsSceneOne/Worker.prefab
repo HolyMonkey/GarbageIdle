@@ -351,17 +351,17 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9529412, g: 0.7725306, b: 0.031372532, a: 1}
-        key1: {r: 1, g: 0.37523973, b: 0, a: 1}
-        key2: {r: 1, g: 0.05583444, b: 0, a: 0}
+        key0: {r: 1, g: 0.4738788, b: 0, a: 1}
+        key1: {r: 0.9529412, g: 0.7725306, b: 0.031372532, a: 1}
+        key2: {r: 1, g: 0.4745098, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 6554
-        ctime1: 21010
-        ctime2: 59753
+        ctime0: 0
+        ctime1: 32768
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -410,7 +410,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.65
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1044,7 +1044,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5567,7 +5567,7 @@ Transform:
   m_GameObject: {fileID: 6755418227428946709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.57}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 1935302600612628795}
   - {fileID: 1002608774578517677}
@@ -5688,8 +5688,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6774672073176911950}
   m_LocalRotation: {x: -0.007284612, y: 0.06579067, z: 0.046645306, w: 0.996716}
-  m_LocalPosition: {x: -0.0024830257, y: 0.5468462, z: 0.00043159456}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.019361, y: 0.60592, z: 0.0057237}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8252019684100075591}
   - {fileID: 2332304579716480516}
