@@ -35,8 +35,7 @@ public class Tapping : MonoBehaviour
     {
         if(_circle.enabled == false)
         {
-            _circle.enabled = true;
-            _finger.enabled = true;
+            Visible();
             _animator.SetTrigger(AnimatorCircle);
         }
         else
@@ -49,12 +48,23 @@ public class Tapping : MonoBehaviour
 
     public void DisableTapping()
     {
-        if (_elepsedTime >= 0.4f)
+        if (_elepsedTime >= 0.5f)
         {
+            Invisible();
             _animator.SetTrigger(AnimatorCircleIdle);
-            _circle.enabled = false;
-            _finger.enabled = false;
             _elepsedTime = 0;
         }
+    }
+
+    private void Visible()
+    {
+        _circle.enabled = true;
+        _finger.enabled = true;
+    }
+
+    private void Invisible()
+    {
+        _circle.enabled = false;
+        _finger.enabled = false;
     }
 }

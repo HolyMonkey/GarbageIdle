@@ -88,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427120656878284926}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.17, y: 0, z: 2.76}
+  m_LocalPosition: {x: -3.17, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4427120657151103949}
@@ -105,8 +105,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 16.090075, z: 20.278568}
-  m_Center: {x: -4.2598696e-14, y: 7.5450373, z: 13.002379}
+  m_Size: {x: 1, y: 16.090075, z: 15.171898}
+  m_Center: {x: 0.000000030561537, y: 7.5450373, z: 10.449047}
 --- !u!54 &4427120656878284921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427120656932272563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.14, y: 0, z: 0}
+  m_LocalPosition: {x: 13.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4427120657151103949}
@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427120657666353412}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.72, y: 0, z: 13.07}
+  m_LocalPosition: {x: -1.72, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4427120657151103949}
@@ -289,8 +289,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 16.466238, z: 21.025646}
-  m_Center: {x: 4.5960753e-14, y: 7.733119, z: 11.234199}
+  m_Size: {x: 1, y: 16.466238, z: 16.417225}
+  m_Center: {x: 0.00000001594435, y: 7.733119, z: 8.929985}
 --- !u!54 &4427120657666353413
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427120657711554981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4427120657151103949}
@@ -437,8 +437,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 17.02641, z: 21.95828}
-  m_Center: {x: 0, y: 9.390507, z: 11.369731}
+  m_Size: {x: 1, y: 17.02641, z: 18.80242}
+  m_Center: {x: 0, y: 9.390507, z: 9.791797}
 --- !u!54 &4427120658619908641
 Rigidbody:
   m_ObjectHideFlags: 0

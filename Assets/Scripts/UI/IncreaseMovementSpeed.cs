@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Tapping))]
+[RequireComponent(typeof(BigTapping))]
 public class IncreaseMovementSpeed : MonoBehaviour
 {
-    private Tapping _tapping;
+    private BigTapping _bigTapping;
 
     private List<Worker> _workers = new List<Worker>();
 
     private void Start()
     {
-        _tapping = GetComponent<Tapping>();
+        _bigTapping = GetComponent<BigTapping>();
     }
 
     public void EnableAccelerations()
@@ -20,7 +20,7 @@ public class IncreaseMovementSpeed : MonoBehaviour
         {
             item.Movement.AccelerationEmployee();
         }
-        _tapping.EnableTapping();
+        _bigTapping.BigEnableTapping();
     }
 
     public void AddWorker(Worker worker)

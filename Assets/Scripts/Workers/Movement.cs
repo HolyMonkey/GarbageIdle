@@ -35,9 +35,6 @@ public class Movement : MonoBehaviour
         else
         {
             _elapsedTime = 0;
-
-            //StopCoroutine(_coroutine);
-            //StartCoroutine(IncreaseSpeed());
         }
     }
 
