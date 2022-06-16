@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Tapping))]
@@ -12,6 +13,7 @@ public class AddWorker : MonoBehaviour
     [SerializeField] private TMP_Text _textLevel;
     [SerializeField] private SpawnerWorker _spawner;
     [SerializeField] private MoneyTransfer _moneyTransfer;
+    [SerializeField] private Image _imageBottonColor;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
 
@@ -29,6 +31,9 @@ public class AddWorker : MonoBehaviour
     private const string LevelAddWorker = "LevelAddWorker";
     private const string SaveNameAmount = "AmountMoneyWorker";
     private const string SaveNameCount = "NumberUsesAddWorker";
+
+    public Image ImageButtonColor => _imageBottonColor;
+    public float Money => _money;
 
     private void Start()
     {

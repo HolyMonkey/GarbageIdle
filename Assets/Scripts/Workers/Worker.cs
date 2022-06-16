@@ -67,7 +67,7 @@ public class Worker : MonoBehaviour
             _finishPoint = true;
             _moneyUpStop = true;
             _textMoney.alpha = 1;
-            _textMoney.text = "+" + Target.Price.ToString();
+            _textMoney.text = "+$" + Target.Price.ToString();
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Tapping))]
@@ -11,6 +12,7 @@ public class SpeedWorkers : MonoBehaviour
     [SerializeField] private TMP_Text _textMoney;
     [SerializeField] private TMP_Text _textLevel;
     [SerializeField] private MoneyTransfer _moneyTransfer;
+    [SerializeField] private Image _imageButtonColor;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
     private List<Worker> _workers = new List<Worker>();
@@ -28,6 +30,9 @@ public class SpeedWorkers : MonoBehaviour
     private const string SpeedLevel = "SpeedLevel";
     private const string SaveNameAmount = "AmountMoneySpeedWorker";
     private const string SaveNameCount = "NumberUsesSpeedWorker";
+
+    public Image _ImageButtonColor => _imageButtonColor;
+    public float Money => _money;
 
     private void Start()
     {

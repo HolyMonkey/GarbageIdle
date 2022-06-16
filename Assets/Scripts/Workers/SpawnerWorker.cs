@@ -13,7 +13,7 @@ public class SpawnerWorker : MonoBehaviour
     [SerializeField] private SpeedWorkers _speedWorkers;
     [SerializeField] private IncreaseMovementSpeed _increaseMovementSpeed;
 
-    private int _count = 0;
+    private int _count = 1;
     private float _elepsedTime = 0;
 
     public const float Delay = 1f;
@@ -45,6 +45,6 @@ public class SpawnerWorker : MonoBehaviour
 
     public void AddCount(int count)
     {
-        _count = count;
+        _count += count;
     }
 }

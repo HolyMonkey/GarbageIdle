@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,12 +13,18 @@ public class AddRewardGarbage : MonoBehaviour
     [SerializeField] private TMP_Text _textMoney;
     [SerializeField] private TMP_Text _textLevel;
     [SerializeField] private MoneyTransfer _moneyTransfer;
+    [SerializeField] private Image _imageButton;
 
     private Data _data;
     private Tapping _tapping;
+    private string _type = "improvement";
+    private string _name = "AddRewardGarbage";
+    private int _amount = 0;
+    private int _count = 0;
+    private float _money = 600;
+    private int _level = 0;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
-
     private List<Garbage> _garbage = new List<Garbage>();
 
     private const string SaveNameMoney = "MoneyRewardGarbage";
@@ -25,12 +32,10 @@ public class AddRewardGarbage : MonoBehaviour
     private const string SaveNameAmount = "AmountMoney";
     private const string SaveNameCount = "NumberUsesRevardGarbage";
 
-    private string _type = "improvement";
-    private string _name = "AddRewardGarbage";
-    private int _amount = 0;
-    private int _count = 0;
-    private float _money = 600;
-    private int _level = 0;
+   
+
+    public float Money => _money;
+    public Image ImageButton => _imageButton;
 
     private void Start()
     {

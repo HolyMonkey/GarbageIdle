@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
     [SerializeField] private ValueHandler _valueHandler;
     [SerializeField] private TMP_Text _money;
     [SerializeField] private MoneyTransfer _moneyTransfer;
+    [SerializeField] private AddRewardGarbage _addRewardGarbage;
 
     private void OnEnable()
     {
@@ -26,7 +29,6 @@ public class Money : MonoBehaviour
 
     private void OnMoneyChanged(float money)
     {
-
         _money = _moneyTransfer.CurrencyConversion(money, _money);
     }
 }
