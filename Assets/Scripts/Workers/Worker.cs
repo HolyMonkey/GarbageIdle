@@ -12,8 +12,8 @@ public class Worker : MonoBehaviour
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private TMP_Text _textMoney;
 
-    private float _speed = 2;
-    private float _raiseSpeed = 5f;
+    private float _speed = 1.5f;
+    private float _raiseSpeed = 3f;
 
     private Data _data;
     private ValueHandler _player;
@@ -89,7 +89,7 @@ public class Worker : MonoBehaviour
 
     public void SettingSpeed()
     {
-        _speed += 0.2f;
+        _speed += 0.1f;
         PlayerPrefs.SetFloat("SpeedWorker", _speed);
         PlayerPrefs.SetFloat("RaiseSpeed", _raiseSpeed);
     }
@@ -99,7 +99,6 @@ public class Worker : MonoBehaviour
 
         if (_moneyUpStop)
         {
-            //_player.AddMoney(this);
             DeactivateAccountReplenishmentAnimation();
         }
 
@@ -123,8 +122,8 @@ public class Worker : MonoBehaviour
     {
         Vector3 distans = transform.position - _target.transform.position;
         var diff = distans.magnitude;
-
-        if (diff <= 1.5f)
+        
+        if (diff <= 1.8f)
         {
             _animator.SetBool(IsSlowRun, false);
             _animator.SetBool(IsRun, true);

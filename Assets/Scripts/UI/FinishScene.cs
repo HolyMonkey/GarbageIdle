@@ -15,6 +15,5 @@ public class FinishScene : MonoBehaviour
     {
         gameObject.SetActive(true);
         _increaseMovementSpeed.DisableButton();
-        Debug.Log("DdDdd");
     }
 }
