@@ -10,7 +10,6 @@ public class Money : MonoBehaviour
     [SerializeField] private ValueHandler _valueHandler;
     [SerializeField] private TMP_Text _money;
     [SerializeField] private MoneyTransfer _moneyTransfer;
-    [SerializeField] private AddRewardGarbage _addRewardGarbage;
 
     private void OnEnable()
     {

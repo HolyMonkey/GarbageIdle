@@ -11,6 +11,7 @@ public class IncreaseMovementSpeed : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(true);
         _bigTapping = GetComponent<BigTapping>();
     }
 
@@ -26,5 +27,10 @@ public class IncreaseMovementSpeed : MonoBehaviour
     public void AddWorker(Worker worker)
     {
         _workers.Add(worker);
+    }
+
+    public void DisableButton()
+    {
+        gameObject.SetActive(false);
     }
 }

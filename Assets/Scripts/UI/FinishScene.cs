@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinishScene : MonoBehaviour
 {
+    [SerializeField] private IncreaseMovementSpeed _increaseMovementSpeed;
     private void Start()
     {
         gameObject.SetActive(false);
@@ -13,5 +14,7 @@ public class FinishScene : MonoBehaviour
     public void OpenScrinFinish()
     {
         gameObject.SetActive(true);
+        _increaseMovementSpeed.DisableButton();
+        Debug.Log("DdDdd");
     }
 }

@@ -15,7 +15,7 @@ public class GarbageCan : MonoBehaviour
     private int _currentQuantity =0;
     private int _maxQuantity = 10;
     private int _totalAmountGarbage = 0;
-    private int _maxCount = 2;
+    private int _maxCount = 100;
 
     public int CurrentQuantity => _currentQuantity;
     public int MaxQuantity => _maxQuantity;

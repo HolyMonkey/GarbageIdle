@@ -68,6 +68,7 @@ public class Worker : MonoBehaviour
             _moneyUpStop = true;
             _textMoney.alpha = 1;
             _textMoney.text = "+$" + Target.Price.ToString();
+            _player.AddMoney(this);
         }
     }
 
@@ -98,7 +99,7 @@ public class Worker : MonoBehaviour
 
         if (_moneyUpStop)
         {
-            _player.AddMoney(this);
+            //_player.AddMoney(this);
             DeactivateAccountReplenishmentAnimation();
         }
 
