@@ -21,7 +21,7 @@ public class AddRewardGarbage : MonoBehaviour
     private string _name = "AddRewardGarbage";
     private int _amount = 0;
     private int _count = 0;
-    private float _money = 600;
+    private float _money = 500;
     private int _level = 0;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();

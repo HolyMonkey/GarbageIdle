@@ -19,7 +19,7 @@ public class SpeedWorkers : MonoBehaviour
 
     private Tapping _tapping;
     private Data _data;
-    private float _money = 200;
+    private float _money = 400;
     private int _level = 0;
     private int _amount = 0;
     private int _count = 0;
