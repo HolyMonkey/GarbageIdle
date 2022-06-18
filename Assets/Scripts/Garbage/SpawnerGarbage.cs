@@ -13,24 +13,25 @@ public class SpawnerGarbage : MonoBehaviour
     private void Start()
     {
         _count = _pointStart.Count;
-    }
 
-    private void Update()
-    {
-        if (_count != 0)
-            TimeToSpawn();
+        TimeToSpawn();
     }
 
     private void TimeToSpawn()
     {
-        for (int i = 0; i < _count; i++)
+        Garbage spawned;
+        int point = 0;
+        int item = 0;
+
+        for (int i = 0; _count != 0; _count--)
         {
-            var point = Random.Range(0, _spawnPoint.Length);
-            var item = Random.Range(0, _garbage.Length);
-            Garbage spawned = Instantiate(_garbage[item], _spawnPoint[point]);;
+            point = Random.Range(0, _spawnPoint.Length);
+            item = Random.Range(0, _garbage.Length);
+
+            spawned = Instantiate(_garbage[item], _spawnPoint[point]);;
+
             _pointStart.AddListGarbage(spawned);
             _addRewardGarbage.AddListGarbage(spawned);
-            _count--;
         }
     }
 }
