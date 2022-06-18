@@ -328,15 +328,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Size.x
-      value: 0.7750673
+      value: 1.4185734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4083862
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
+      propertyPath: m_Size.z
+      value: 0.8142007
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Center.x
-      value: -0.11246632
+      value: -0.12318182
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
+      propertyPath: m_Center.y
+      value: -0.20419315
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Center.z
-      value: 0.0000000012922883
+      value: 0.01977697
       objectReference: {fileID: 0}
     - target: {fileID: 8080810082490282126, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -535,8 +547,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1725076530}
     - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 905506107}
+    - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextSceneThree
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FinishScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6818929136068747282, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: _valueHandler
@@ -1293,6 +1313,10 @@ PrefabInstance:
       propertyPath: _finishScene
       value: 
       objectReference: {fileID: 905506107}
+    - target: {fileID: 2690168145041198702, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
+      propertyPath: _increaseMovementSpeed
+      value: 
+      objectReference: {fileID: 905506105}
     - target: {fileID: 7006139960351959046, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: m_RootOrder
       value: 1

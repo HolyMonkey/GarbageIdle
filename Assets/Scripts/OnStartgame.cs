@@ -5,12 +5,17 @@ using IJunior.TypedScenes;
 
 public class OnStartgame : MonoBehaviour
 {
+    [SerializeField] private FinishScene _finishScene;
+
     IntegrationMetric _integrationMetric = new IntegrationMetric();
+
+    private int _index =0; 
 
     private void Awake()
     {
         _integrationMetric.OnGameStart();
         _integrationMetric.SetUserProperty();
-        SampleScene.Load();
+        _index = _finishScene.LevelIndex;
+        _finishScene.CheckLevel(_index);
     }
 }

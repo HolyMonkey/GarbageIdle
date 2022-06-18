@@ -7,7 +7,7 @@ using UnityEngine;
 public class ValueHandler : MonoBehaviour
 {
     private Data _data;
-    private float _money = 4000;
+    private float _money = 0;
 
     private IntegrationMetric _integrationMetric = new IntegrationMetric();
     public float Money => _money;
