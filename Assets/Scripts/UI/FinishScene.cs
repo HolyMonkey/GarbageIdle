@@ -21,7 +21,6 @@ public class FinishScene : MonoBehaviour
         _startLevelTime = Time.time;
         _levelIndex = _data.GetSave(LevelSceneIndex, _levelIndex);
         _integrationMetric.OnLevelStart(_levelIndex);
-        //CheckLevel(_levelIndex);
     }
 
     private void Start()
