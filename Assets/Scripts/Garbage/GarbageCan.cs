@@ -10,6 +10,7 @@ public class GarbageCan : MonoBehaviour
     [SerializeField] private TakeReward _takeReward;
     [SerializeField] private FinishScene _finishScene;
     [SerializeField] private PointStart _pointStart;
+    [SerializeField] private IncreaseMovementSpeed _increaseMovementSpeed;
 
     private Data _data;
     private int _currentQuantity =0;
@@ -63,6 +64,7 @@ public class GarbageCan : MonoBehaviour
         if (_totalAmountGarbage >= 100)
         {
             _finishScene.OpenScrinFinish();
+            _increaseMovementSpeed.DisableButton();
             ResetMaxCount();
         }
     }
