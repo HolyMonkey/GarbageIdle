@@ -22,14 +22,9 @@ public class Worker : MonoBehaviour
     private Transform _junkyard;
     private Movement _movement;
     private Garbage _target;
-
-    private List<Garbage> _garbage = new List<Garbage>();
-
-    public Movement Movement => _movement;
-    public Garbage Target => _target;
-    public ParticleSystem ParticleSystem => _particleSystem;
-    public bool _startPoint { get; private set; } = false;
-    public bool _finishPoint { get; private set; } = false;
+    private float _elepsedTim = 0;
+    private bool _moneyUpStop = false;
+    private bool _isDead = false;
 
     private const string SpeedWorker = "SpeedWorker";
     private const string RaiseSpeed = "RaiseSpeed";
@@ -41,8 +36,17 @@ public class Worker : MonoBehaviour
     private const float PointX = -0.019f;
     private const float PointY = 0.888f;
     private const float PointZ = 0.288f;
-    private float _elepsedTim = 0;
-    private bool _moneyUpStop = false;
+
+    private List<Garbage> _garbage = new List<Garbage>();
+
+    public bool IsDead => _isDead;
+    public Movement Movement => _movement;
+    public Garbage Target => _target;
+    public ParticleSystem ParticleSystem => _particleSystem;
+    public bool _startPoint { get; private set; } = false;
+    public bool _finishPoint { get; private set; } = false;
+
+   
 
     private void Start()
     {
@@ -150,6 +154,7 @@ public class Worker : MonoBehaviour
             _target = GetGarbagePosition(_garbage);
             if(_target == null)
             {
+                _isDead = true;
                 gameObject.SetActive(false);
             }
             else

@@ -1042,19 +1042,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Size.x
-      value: 1.0079623
+      value: 0.67230797
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Size.z
-      value: 0.929781
+      value: 0.79536235
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Center.x
-      value: 0.0039813225
+      value: 0.019214153
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670301, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_Center.z
-      value: -0.03465572
+      value: 0.032553613
       objectReference: {fileID: 0}
     - target: {fileID: 6584063895583500947, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: lengthInSec
@@ -1103,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4427120657151103949, guid: 8d0a4a85fac916c4c82a9cb39fb5b0cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 4427120657151103949, guid: 8d0a4a85fac916c4c82a9cb39fb5b0cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1158,6 +1158,10 @@ PrefabInstance:
       propertyPath: _finishScene
       value: 
       objectReference: {fileID: 6527748299491807695}
+    - target: {fileID: 2690168145041198702, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
+      propertyPath: _increaseMovementSpeed
+      value: 
+      objectReference: {fileID: 821419684037919456}
     - target: {fileID: 7006139960351959046, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1324,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 854848024781719787, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.5543518
+      value: -1.5543823
       objectReference: {fileID: 0}
     - target: {fileID: 2423737312429936075, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1394,6 +1398,18 @@ PrefabInstance:
       propertyPath: _valueHandler
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6527748299491807695}
+    - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextSceneTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818929135969257343, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FinishScene, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6818929136068747282, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: _valueHandler
       value: 
@@ -1550,6 +1566,30 @@ PrefabInstance:
       propertyPath: _valueHandler
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _circle
+      value: 
+      objectReference: {fileID: 862391726}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _finger
+      value: 
+      objectReference: {fileID: 182382294}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _circleBig
+      value: 
+      objectReference: {fileID: 1772100417}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _fingerBig
+      value: 
+      objectReference: {fileID: 200829044}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _animatorClick
+      value: 
+      objectReference: {fileID: 862391724}
+    - target: {fileID: 7534269638667710749, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
+      propertyPath: _animatorBigClick
+      value: 
+      objectReference: {fileID: 1772100416}
     - target: {fileID: 8468521231136528837, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

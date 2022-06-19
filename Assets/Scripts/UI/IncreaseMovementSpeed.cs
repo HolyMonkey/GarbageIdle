@@ -19,8 +19,12 @@ public class IncreaseMovementSpeed : MonoBehaviour
     {
         foreach (var item in _workers)
         {
-            item.Movement.AccelerationEmployee();
+            if (item.IsDead == false)
+            {
+                item.Movement.AccelerationEmployee();
+            }
         }
+        
         _bigTapping.BigEnableTapping();
     }
 

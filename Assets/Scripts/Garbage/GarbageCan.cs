@@ -17,6 +17,7 @@ public class GarbageCan : MonoBehaviour
     private int _maxQuantity = 10;
     private int _totalAmountGarbage = 0;
     private int _maxCount = 100;
+    private bool _full = false;
 
     public int CurrentQuantity => _currentQuantity;
     public int MaxQuantity => _maxQuantity;
@@ -30,7 +31,7 @@ public class GarbageCan : MonoBehaviour
     private void Start()
     {
         _data = GetComponent<Data>();
-
+        _full = false;
         _currentQuantity = _data.GetSave(NameCurrentQantity, _currentQuantity);
         _maxQuantity = _data.GetSave(NameMaxQantity, _maxQuantity);
         _totalAmountGarbage = _data.GetSave(NameTotalAmountGarbage, _totalAmountGarbage);
@@ -40,7 +41,6 @@ public class GarbageCan : MonoBehaviour
 
     private void Update()
     {
-
         if (_currentQuantity >= _maxQuantity)
         {
             _takeReward.gameObject.SetActive(true);
@@ -63,8 +63,13 @@ public class GarbageCan : MonoBehaviour
 
         if (_totalAmountGarbage >= 100)
         {
-            _finishScene.OpenScrinFinish();
+            _full = true;
             _increaseMovementSpeed.DisableButton();
+        }
+
+        if (_full)
+        {
+            _finishScene.OpenScrinFinish();
             ResetMaxCount();
         }
     }

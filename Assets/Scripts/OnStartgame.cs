@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
 
+[RequireComponent(typeof(Data))]
 public class OnStartgame : MonoBehaviour
 {
     [SerializeField] private FinishScene _finishScene;
 
-    IntegrationMetric _integrationMetric = new IntegrationMetric();
-
-    private int _index =0; 
+    private Data _data;
+    private IntegrationMetric _integrationMetric = new IntegrationMetric();
+    private int _idexLevel;
 
     private void Awake()
     {
         _integrationMetric.OnGameStart();
         _integrationMetric.SetUserProperty();
-        _index = _finishScene.LevelIndex;
-        _finishScene.CheckLevel(_index);
+        _data = GetComponent<Data>();
+        _idexLevel = _data.GetSave(_finishScene.LevelSceneIndexName, _finishScene.LevelIndex);
+        _finishScene.CheckLevel(_idexLevel);
     }
 }

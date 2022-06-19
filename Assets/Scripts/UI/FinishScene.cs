@@ -9,11 +9,13 @@ public class FinishScene : MonoBehaviour
 {
     IntegrationMetric _integrationMetric = new IntegrationMetric();
     private Data _data;
-    private int _levelIndex;
+    private int _levelIndex =1 ;
     private float _startLevelTime;
+    private int _maxLevelIndex = 3;
 
     public const string LevelSceneIndex = "IndexLevelScene";
     public int LevelIndex => _levelIndex;
+    public string LevelSceneIndexName => LevelSceneIndex;
 
     private void Awake()
     {
@@ -32,48 +34,50 @@ public class FinishScene : MonoBehaviour
     {
         gameObject.SetActive(true);
         _levelIndex = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt(LevelSceneIndex,_levelIndex);
+        FinishLevel(_startLevelTime, _levelIndex);
+        SetLevelIdex();
     }
 
     public void NextSceneTwo()
     {
-        FinishLevel(_startLevelTime, _levelIndex);
-        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SceneTwo.Load();
     }
 
     public void NextSceneThree()
     {
-        FinishLevel(_startLevelTime, _levelIndex);
-        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SceneThree.Load();
     }
 
     public void NextSceneOne()
     {
-        FinishLevel(_startLevelTime, _levelIndex);
-        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
         SampleScene.Load();
+    }
+
+    private void SetLevelIdex()
+    {
+        _levelIndex++;
+
+        if (_levelIndex > _maxLevelIndex)
+        {
+            _levelIndex = 1;
+        }
+
+        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
     }
 
     public void CheckLevel(int index)
     {
-        if (index == 0)
+        if (index == 1)
         {
             SampleScene.Load();
         }
-        if (index == 1)
+        if (index == 2)
         {
             SceneTwo.Load();
         }
-        else if (index == 2)
-        {
-            SceneThree.Load();
-        }
         else if (index == 3)
         {
-            SampleScene.Load();
-
+            SceneThree.Load();
         }
     }
 
