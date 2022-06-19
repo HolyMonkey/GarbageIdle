@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Data))]
 public class SpawnerGarbage : MonoBehaviour
 {
     [SerializeField] private Garbage[] _garbage;
@@ -10,9 +11,12 @@ public class SpawnerGarbage : MonoBehaviour
     [SerializeField] private PointStart _pointStart;
     [SerializeField] private AddRewardGarbage _addRewardGarbage;
 
+    private Data _data;
+
     private void Start()
     {
-        _count = _pointStart.Count;
+        _data = GetComponent<Data>();
+        _count = _data.GetSave(_pointStart.CountGarbage, _pointStart.Count);
 
         TimeToSpawn();
     }

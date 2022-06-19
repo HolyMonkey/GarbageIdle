@@ -37,6 +37,7 @@ public class GarbageCan : MonoBehaviour
         _totalAmountGarbage = _data.GetSave(NameTotalAmountGarbage, _totalAmountGarbage);
         _maxCount = _data.GetSave(MaxCount, _maxCount);
         GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
+        _pointStart.GetCountGarbageSpawn(_maxCount);
     }
 
     private void Update()
@@ -52,6 +53,7 @@ public class GarbageCan : MonoBehaviour
         _currentQuantity++;
         _totalAmountGarbage++;
         _maxCount--;
+        _pointStart.GetCountGarbageSpawn(_maxCount);
         if (_maxCount < 0)
             _maxCount = 0;
         

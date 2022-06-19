@@ -8,14 +8,16 @@ public class PointStart : MonoBehaviour
     private List<Garbage> _garbage = new List<Garbage>();
     private Data _data;
     private int _count = 100;
+
     public int Count => _count;
 
-    private const string NameCountGarbage = "CountGarbagePointStart";
+    public const string NameCountGarbage = "CountGarbagePointStart";
+
+    public string CountGarbage => NameCountGarbage;
 
     private void Start()
     {
         _data = GetComponent<Data>();
-
         _count = _data.GetSave(NameCountGarbage, _count);
     }
 
@@ -27,6 +29,12 @@ public class PointStart : MonoBehaviour
     public void Reset(int count)
     {
         _count = count +1;
+        PlayerPrefs.SetInt(NameCountGarbage, _count);
+    }
+
+    public void GetCountGarbageSpawn(int count)
+    {
+      _count = count;
         PlayerPrefs.SetInt(NameCountGarbage, _count);
     }
 
@@ -50,7 +58,6 @@ public class PointStart : MonoBehaviour
             if (_garbage[i].Removed)
             {
                 _garbage.RemoveAt(i);
-                _count--;
                 PlayerPrefs.SetInt(NameCountGarbage, _count);
             }
         }
