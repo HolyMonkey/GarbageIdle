@@ -8,6 +8,6 @@ public class TestAnalytics : MonoBehaviour
     private void Start()
     {
         GameAnalytics.Initialize();
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "something");
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "something");
     }
 }

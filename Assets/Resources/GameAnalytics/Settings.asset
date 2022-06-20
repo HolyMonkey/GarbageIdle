@@ -82,7 +82,7 @@ MonoBehaviour:
   macIcon: {fileID: 0}
   windowsPhoneIcon: {fileID: 0}
   UsePlayerSettingsBuildNumber: 0
-  SubmitErrors: 1
+  SubmitErrors: 0
   NativeErrorReporting: 0
   MaxErrorCount: 10
   SubmitFpsAverage: 0

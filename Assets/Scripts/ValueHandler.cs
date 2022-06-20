@@ -20,7 +20,6 @@ public class ValueHandler : MonoBehaviour
     {
         _data = GetComponent<Data>();
         _money = _data.GetSaveFloat(Balance, _money);
-        _integrationMetric.OnCurrentSoftBalance((int)_money);
         MoneyChanged?.Invoke(_money);
     }
 
@@ -29,6 +28,7 @@ public class ValueHandler : MonoBehaviour
         _money += worker.Target.Price;
         MoneyChanged?.Invoke(_money);
         PlayerPrefs.SetFloat("Money", _money);
+        _integrationMetric.OnCurrentSoftBalance((int)_money);
     }
 
     public void PayPurchase(float money)
@@ -36,6 +36,7 @@ public class ValueHandler : MonoBehaviour
         _money -= money;
         MoneyChanged?.Invoke(_money);
         PlayerPrefs.SetFloat("Money", _money);
+        _integrationMetric.OnCurrentSoftBalance((int)_money);
     }
 
     public void AddReward(float reward)
@@ -43,5 +44,6 @@ public class ValueHandler : MonoBehaviour
         _money += reward;
         MoneyChanged?.Invoke(_money);
         PlayerPrefs.SetFloat("Money", _money);
+        _integrationMetric.OnCurrentSoftBalance((int)_money);
     }
 }

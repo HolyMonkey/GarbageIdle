@@ -8,7 +8,8 @@ using UnityEngine;
 public class IntegrationMetric
 {
     private const string SessionCountName = "sessionCount";
-    private const string CurrentSoftName = "CurrentSoft";
+    private const string CurrentSoftName = "current_soft";
+    private const string SoftSpentCount = "soft_spent";
     private const string _regDay = "regDay";
     private const string ProfileId = "ProfileId";
     private const int ProfileIdLength = 10;
@@ -22,6 +23,7 @@ public class IntegrationMetric
         Dictionary<string, object> count = new Dictionary<string, object>();
         count.Add("count", CountSession());
         AppMetrica.Instance.ReportEvent("game_start", count);
+        GameAnalytics.Initialize();
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game_start", count);
     }
 
@@ -54,31 +56,34 @@ public class IntegrationMetric
         AppMetrica.Instance.ReportEvent("restart", levelProperty);
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
     }
-
+   
     public void OnSoftCurrencySpend(string type, string name, int currencySpend,int numberUses,int money)
     {
         Dictionary<string, object> userInfo = new Dictionary<string, object> { { "type", type }, { "name", name }, { "amount", currencySpend }, { "count", numberUses } };
         YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
-        userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("current_soft").WithDelta(money));
+        userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("soft_spent").WithDelta(money));
         ReportUserProfile(userProfile);
         //Amplitude.Instance.logEvent("soft_spent", userInfo);
-        AppMetrica.Instance.ReportEvent("soft_spent", userInfo);
+        AppMetrica.Instance.ReportEvent(SoftSpentCount, userInfo);
+        GameAnalytics.NewDesignEvent(SoftSpentCount, userInfo);
     }
 
     public void OnCurrentSoftBalance(int money)
     {
-        Dictionary<string, object> balanceMone = new Dictionary<string, object>();
+        Dictionary<string, object> balanceMone = new Dictionary<string, object> { { "current_soft", money } };
         balanceMone.Add("balance", CurrentBalance(money));
+        AppMetrica.Instance.ReportEvent(CurrentSoftName, balanceMone);
+        GameAnalytics.NewDesignEvent(CurrentSoftName, balanceMone);
     }
 
     public void SetUserProperty()
     {
         //amplitude.setUserProperty("session_count", SessionCount);
-
+        
         YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
         userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("session_count").WithDelta(SessionCount));
         ReportUserProfile(userProfile);
-
+       
         if (PlayerPrefs.HasKey(_regDay) == false)
         {
             RegDay();
@@ -87,7 +92,7 @@ public class IntegrationMetric
         {
             int firstDay = PlayerPrefs.GetInt(_regDay);
             int daysInGame = DateTime.Now.Day - firstDay;
-
+            
             DaysInGame( daysInGame);
         }
     }
@@ -95,20 +100,24 @@ public class IntegrationMetric
     private void RegDay()
     {
         //amplitude.setUserProperty("reg_day", DateTime.Now.ToString());
-
+        Dictionary<string, object> count = new Dictionary<string, object>();
+        count.Add("red_day", DateTime.Now.ToString());
         YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
         userProfile.Apply(YandexAppMetricaAttribute.CustomString("reg_day").WithValue(DateTime.Now.ToString()));
         ReportUserProfile(userProfile);
-
+        
         PlayerPrefs.SetInt(_regDay, DateTime.Now.Day);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, _regDay, count);
     }
 
     private void DaysInGame( int daysInGame)
     {
+        Dictionary<string, object> counts = new Dictionary<string, object>();
+        counts.Add("days_in_game", daysInGame);
         //amplitude.setUserProperty("days_in_game", daysInGame);
-
         YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
         userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("days_in_game").WithDelta(daysInGame));
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "days_in_game", counts);
         ReportUserProfile(userProfile);
     }
 

@@ -32,8 +32,6 @@ public class AddRewardGarbage : MonoBehaviour
     private const string SaveNameAmount = "AmountMoney";
     private const string SaveNameCount = "NumberUsesRevardGarbage";
 
-   
-
     public float Money => _money;
     public Image ImageButton => _imageButton;
 

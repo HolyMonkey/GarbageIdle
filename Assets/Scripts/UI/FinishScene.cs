@@ -12,8 +12,10 @@ public class FinishScene : MonoBehaviour
     private int _levelIndex =1 ;
     private float _startLevelTime;
     private int _maxLevelIndex = 3;
+    private int _scenelevel = 1;
 
     public const string LevelSceneIndex = "IndexLevelScene";
+    public const string SceneLevelIndexName = "SceneLevelIndexName";
     public int LevelIndex => _levelIndex;
     public string LevelSceneIndexName => LevelSceneIndex;
 
@@ -22,11 +24,12 @@ public class FinishScene : MonoBehaviour
         _data = GetComponent<Data>();
         _startLevelTime = Time.time;
         _levelIndex = _data.GetSave(LevelSceneIndex, _levelIndex);
-        _integrationMetric.OnLevelStart(_levelIndex);
+        _scenelevel = _data.GetSave(SceneLevelIndexName, _scenelevel);
     }
 
     private void Start()
     {
+        _integrationMetric.OnLevelStart(_scenelevel);
         gameObject.SetActive(false);
     }
 
@@ -34,7 +37,7 @@ public class FinishScene : MonoBehaviour
     {
         gameObject.SetActive(true);
         _levelIndex = SceneManager.GetActiveScene().buildIndex;
-        FinishLevel(_startLevelTime, _levelIndex);
+        FinishLevel(_startLevelTime, _scenelevel);
         SetLevelIdex();
     }
 
@@ -56,12 +59,13 @@ public class FinishScene : MonoBehaviour
     private void SetLevelIdex()
     {
         _levelIndex++;
+        _scenelevel++;
 
         if (_levelIndex > _maxLevelIndex)
         {
             _levelIndex = 1;
         }
-
+        PlayerPrefs.SetInt(SceneLevelIndexName, _scenelevel);
         PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
     }
 
