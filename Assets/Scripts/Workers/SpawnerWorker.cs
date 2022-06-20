@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnerWorker : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class SpawnerWorker : MonoBehaviour
     [SerializeField] private ValueHandler _valueHandler;
     [SerializeField] private SpeedWorkers _speedWorkers;
     [SerializeField] private IncreaseMovementSpeed _increaseMovementSpeed;
+
+    public event UnityAction<Worker> WorkerSpawned;
 
     private int _count = 1;
     private float _elepsedTime = 0;
@@ -41,6 +44,8 @@ public class SpawnerWorker : MonoBehaviour
         spawned.Init(_pointStart, _pointFinish, _junkyard,_valueHandler);
         _increaseMovementSpeed.AddWorker(spawned);
         _speedWorkers.AddListGarbage(spawned);
+
+        WorkerSpawned?.Invoke(spawned);
     }
 
     public void AddCount(int count)

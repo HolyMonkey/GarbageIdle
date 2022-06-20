@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Movement))]
@@ -39,6 +40,9 @@ public class Worker : MonoBehaviour
 
     private List<Garbage> _garbage = new List<Garbage>();
 
+    public event UnityAction<int> AddedMoney;
+    public event UnityAction<Worker> Died;
+
     public bool IsDead => _isDead;
     public Movement Movement => _movement;
     public Garbage Target => _target;
@@ -70,8 +74,12 @@ public class Worker : MonoBehaviour
             _elepsedTim = 0;
             _finishPoint = true;
             _moneyUpStop = true;
-            _textMoney.alpha = 1;
-            _textMoney.text = "+$" + Target.Price.ToString();
+
+            AddedMoney?.Invoke(Target.Price);
+
+            //_textMoney.alpha = 1;
+            //_textMoney.text = "+$" + Target.Price.ToString();
+
             _player.AddMoney(this);
         }
     }
@@ -155,6 +163,7 @@ public class Worker : MonoBehaviour
             if(_target == null)
             {
                 _isDead = true;
+                Died?.Invoke(this);
                 gameObject.SetActive(false);
             }
             else
