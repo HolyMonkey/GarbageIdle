@@ -22,6 +22,8 @@ public class Garbage : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Price"))
             _price = PlayerPrefs.GetInt("Price");
+        else
+            PlayerPrefs.SetInt("Price", _price);
 
         _rigidbody = GetComponent<Rigidbody>();
     }
