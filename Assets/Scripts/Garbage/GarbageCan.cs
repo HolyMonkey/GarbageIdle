@@ -94,12 +94,16 @@ public class GarbageCan : MonoBehaviour
             GarbageCountChanged?.Invoke(0, 1);
             _currentQuantity = count;
             GarbageCountChanged?.Invoke(_currentQuantity, _maxQuantity);
+            PlayerPrefs.SetInt("MaxQantity", _maxQuantity);
+            PlayerPrefs.SetInt("CurrentQantityGarbage", _currentQuantity);
         }
         else if(_currentQuantity == _maxQuantity)
         {
             _currentQuantity = 0;
             _maxQuantity += 10;
             GarbageCountChanged?.Invoke(0, 1);
+            PlayerPrefs.SetInt("MaxQantity", _maxQuantity);
+            PlayerPrefs.SetInt("CurrentQantityGarbage", _currentQuantity);
         }
     }
 }
