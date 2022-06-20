@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wheel
+  m_Name: dumpster2 1
   m_Shader: {fileID: 4800000, guid: 0daa94f23f43f498b822cfbfc22c6689, type: 3}
-  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_NONE
+  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_MULTIPLY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e8903e9bb49658045a829c11248bccc0, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -74,15 +74,15 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FlatRimEdgeSmoothness: 0.24
-    - _FlatRimLightAlign: 0.28
-    - _FlatRimSize: 0.29
+    - _FlatRimEdgeSmoothness: 0.5
+    - _FlatRimLightAlign: 0.42
+    - _FlatRimSize: 0.5
     - _FlatSpecularEdgeSmoothness: 0
     - _FlatSpecularSize: 0.1
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _GradientAngle: 0
     - _GradientCenterX: 0
@@ -99,9 +99,9 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RimEnabled: 0
-    - _SelfShadingSize: 0.55
+    - _SelfShadingSize: 0.5
     - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0.5
+    - _ShadowEdgeSize: 0.028
     - _ShadowEdgeSizeExtra: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
@@ -110,20 +110,20 @@ Material:
     - _Surface: 0
     - _TextureImpact: 1
     - _UVSec: 0
-    - _UnityShadowMode: 0
+    - _UnityShadowMode: 1
     - _UnityShadowPower: 0.2
     - _UnityShadowSharpness: 1
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.498, g: 0.498, b: 0.18415625, a: 1}
-    - _ColorDim: {r: 0.348, g: 0.348, b: 0.12878741, a: 1}
+    - _Color: {r: 0.215, g: 0.215, b: 0.215, a: 1}
+    - _ColorDim: {r: 0.092, g: 0.092, b: 0.092, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.6320754, g: 0.5873531, b: 0.5873531, a: 1}
+    - _FlatRimColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}

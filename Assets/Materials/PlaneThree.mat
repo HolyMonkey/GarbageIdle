@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PlaneThree
   m_Shader: {fileID: 4800000, guid: 0daa94f23f43f498b822cfbfc22c6689, type: 3}
-  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_COLOR
+  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _UNITYSHADOWMODE_MULTIPLY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -110,14 +110,14 @@ Material:
     - _Surface: 0
     - _TextureImpact: 1
     - _UVSec: 0
-    - _UnityShadowMode: 2
-    - _UnityShadowPower: 0.2
+    - _UnityShadowMode: 1
+    - _UnityShadowPower: 0.646
     - _UnityShadowSharpness: 1
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.034375, g: 0.55, b: 0.38500005, a: 1}
-    - _ColorDim: {r: 0.3364549, g: 0.69803923, b: 0.3364549, a: 1}
+    - _Color: {r: 0.3745333, g: 0.8055999, b: 0.90099996, a: 1}
+    - _ColorDim: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
@@ -126,5 +126,5 @@ Material:
     - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
-    - _UnityShadowColor: {r: 0.236376, g: 0.402, b: 0.2521497, a: 1}
+    - _UnityShadowColor: {r: 0.24774899, g: 0.5328941, b: 0.59599996, a: 1}
   m_BuildTextureStacks: []
