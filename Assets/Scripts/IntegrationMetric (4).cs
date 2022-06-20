@@ -22,14 +22,14 @@ public class IntegrationMetric
         Dictionary<string, object> count = new Dictionary<string, object>();
         count.Add("count", CountSession());
         AppMetrica.Instance.ReportEvent("game_start", count);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game_start", count);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game_start", count);
     }
 
     public void OnLevelStart(int levelIndex)
     {
         var levelProperty = CreateLevelProperty(levelIndex);
         AppMetrica.Instance.ReportEvent("level_start", levelProperty);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "level_start", levelProperty);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "level_start", levelProperty);
     }
 
     public void OnLevelComplete(int levelComplitioTime, int levelIndex)
@@ -37,7 +37,7 @@ public class IntegrationMetric
         Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelComplitioTime } };
 
         AppMetrica.Instance.ReportEvent("level_complete", userInfo);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "level_complete", userInfo);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "level_complete", userInfo);
     }
 
     public void OnLevelFail(int levelFailTime, int levelIndex)
@@ -45,14 +45,14 @@ public class IntegrationMetric
         Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelFailTime } };
 
         AppMetrica.Instance.ReportEvent("fail", userInfo);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
     }
 
     public void OnRestartLevel(int levelIndex)
     {
         var levelProperty = CreateLevelProperty(levelIndex);
         AppMetrica.Instance.ReportEvent("restart", levelProperty);
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
     }
 
     public void OnSoftCurrencySpend(string type, string name, int currencySpend,int numberUses,int money)

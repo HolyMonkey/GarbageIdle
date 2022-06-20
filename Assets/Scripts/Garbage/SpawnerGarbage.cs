@@ -27,7 +27,7 @@ public class SpawnerGarbage : MonoBehaviour
         int point = 0;
         int item = 0;
 
-        for (int i = 0; _count != 0; _count--)
+        for (int i ; _count != 0; _count--)
         {
             point = Random.Range(0, _spawnPoint.Length);
             item = Random.Range(0, _garbage.Length);
