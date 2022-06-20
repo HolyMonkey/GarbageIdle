@@ -69,7 +69,7 @@ public class AddWorker : MonoBehaviour
 
     private void SetPrice()
     {
-        _money += 500;
+        _money += 2300;
         _textLevel.text = "lvl." + _level;
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         PlayerPrefs.SetFloat(MoneyAddWorker, _money);

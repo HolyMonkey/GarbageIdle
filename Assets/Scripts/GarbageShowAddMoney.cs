@@ -59,6 +59,7 @@ public class GarbageShowAddMoney : MonoBehaviour
             if(item.gameObject.activeSelf == false)
             {
                 item.gameObject.SetActive(true);
+                item.GetComponentInChildren<TMP_Text>().text = "+$" + PlayerPrefs.GetInt("Price");
                 StartCoroutine(ActiveShowAddMoney(item));
                 return;
             }
