@@ -10,7 +10,7 @@ public class Garbage : MonoBehaviour
     private bool _highlighted = false;
     private bool _removed = false;
     private bool _visible = false;
-    private int _price = 500;
+    private int _price = 250;
 
     public bool InVisible => _visible;
     public int Price => _price;
@@ -43,7 +43,7 @@ public class Garbage : MonoBehaviour
 
     public void RisePrice()
     {
-        _price += 20;
+        _price += 50;
         PlayerPrefs.SetInt("Price", _price);
     }
 
