@@ -24,6 +24,7 @@ public class Worker : MonoBehaviour
     private Movement _movement;
     private Garbage _target;
     private float _elepsedTim = 0;
+    private float _elepsedTimPoinfinish = 0;
     private bool _moneyUpStop = false;
     private bool _isDead = false;
 
@@ -81,6 +82,21 @@ public class Worker : MonoBehaviour
             //_textMoney.text = "+$" + Target.Price.ToString();
 
             _player.AddMoney(this);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent(out PointFinish pointFinish))
+        {
+            _elepsedTimPoinfinish += Time.deltaTime;
+            if(_elepsedTimPoinfinish>= 0.5)
+            {
+                Cast(_junkyard.position);
+                _finishPoint = true;
+                _movement.SetTarget(_pointStart.transform, _speed, _raiseSpeed, this);
+                _elepsedTimPoinfinish = 0;
+            }
         }
     }
 
@@ -151,6 +167,11 @@ public class Worker : MonoBehaviour
     {
         _target.transform.parent = null;
         _target.transform.DOJump(target, JumpPower, QuantityJump, Duration);
+        Check();
+    }
+
+    private void Check()
+    {
         _startPoint = false;
     }
 
@@ -182,6 +203,7 @@ public class Worker : MonoBehaviour
         {
             _textMoney.alpha = 0;
             _moneyUpStop = false;
+            _finishPoint = false;
         }
     }
 

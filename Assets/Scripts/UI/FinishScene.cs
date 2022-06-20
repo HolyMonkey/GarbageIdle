@@ -30,7 +30,7 @@ public class FinishScene : MonoBehaviour
     private void Start()
     {
         _integrationMetric.OnLevelStart(_scenelevel);
-        gameObject.SetActive(false);
+        Close();
     }
 
     public void OpenScrinFinish()
@@ -56,19 +56,6 @@ public class FinishScene : MonoBehaviour
         SampleScene.Load();
     }
 
-    private void SetLevelIdex()
-    {
-        _levelIndex++;
-        _scenelevel++;
-
-        if (_levelIndex > _maxLevelIndex)
-        {
-            _levelIndex = 1;
-        }
-        PlayerPrefs.SetInt(SceneLevelIndexName, _scenelevel);
-        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
-    }
-
     public void CheckLevel(int index)
     {
         if (index == 1)
@@ -85,6 +72,20 @@ public class FinishScene : MonoBehaviour
         }
     }
 
+    private void SetLevelIdex()
+    {
+        _levelIndex++;
+        _scenelevel++;
+
+        if (_levelIndex > _maxLevelIndex)
+        {
+            _levelIndex = 1;
+        }
+        PlayerPrefs.SetInt(SceneLevelIndexName, _scenelevel);
+        PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
+        Debug.Log("Увеличиваем на 1 уровень сцены когда заканчиваем " + _scenelevel);
+    }
+
     private void FinishLevel(float startLevelTime, int levelIndex)
     {
         int completedLevelTime;
@@ -94,5 +95,10 @@ public class FinishScene : MonoBehaviour
             completedLevelTime *= -1;
 
         _integrationMetric.OnLevelComplete(completedLevelTime, levelIndex);
+    }
+
+    private void Close()
+    {
+        gameObject.SetActive(false);
     }
 }

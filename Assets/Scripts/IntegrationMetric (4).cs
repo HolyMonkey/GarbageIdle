@@ -42,20 +42,20 @@ public class IntegrationMetric
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "level_complete", userInfo);
     }
 
-    public void OnLevelFail(int levelFailTime, int levelIndex)
-    {
-        Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelFailTime } };
+    //public void OnLevelFail(int levelFailTime, int levelIndex)
+    //{
+    //    Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelFailTime } };
 
-        AppMetrica.Instance.ReportEvent("fail", userInfo);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
-    }
+    //    AppMetrica.Instance.ReportEvent("fail", userInfo);
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
+    //}
 
-    public void OnRestartLevel(int levelIndex)
-    {
-        var levelProperty = CreateLevelProperty(levelIndex);
-        AppMetrica.Instance.ReportEvent("restart", levelProperty);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
-    }
+    //public void OnRestartLevel(int levelIndex)
+    //{
+    //    var levelProperty = CreateLevelProperty(levelIndex);
+    //    AppMetrica.Instance.ReportEvent("restart", levelProperty);
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
+    //}
    
     public void OnSoftCurrencySpend(string type, string name, int currencySpend,int numberUses,int money)
     {
@@ -83,7 +83,7 @@ public class IntegrationMetric
         YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
         userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("session_count").WithDelta(SessionCount));
         ReportUserProfile(userProfile);
-       
+
         if (PlayerPrefs.HasKey(_regDay) == false)
         {
             RegDay();
@@ -154,17 +154,15 @@ public class IntegrationMetric
 
     private int CurrentBalance(int money)
     {
-        int balanceMoney = money;
-
+        int balanceMoney = 0;
+       
         if (PlayerPrefs.HasKey(CurrentSoftName))
         {
             balanceMoney = PlayerPrefs.GetInt(CurrentSoftName);
-            CurrentSoft = balanceMoney; 
         }
-
-        PlayerPrefs.SetInt(CurrentSoftName, balanceMoney);
+        balanceMoney = money;
         CurrentSoft = balanceMoney;
-
+        PlayerPrefs.SetInt(CurrentSoftName, balanceMoney);
         return balanceMoney;
     }
 
@@ -179,7 +177,6 @@ public class IntegrationMetric
     private int CountSession()
     {
         int count = 1;
-
         if (PlayerPrefs.HasKey(SessionCountName))
         {
             count = PlayerPrefs.GetInt(SessionCountName);
