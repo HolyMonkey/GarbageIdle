@@ -225,7 +225,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 47.893, y: -26.568, z: 4.613}
 --- !u!1 &963194225
 GameObject:
@@ -435,7 +435,7 @@ Transform:
   m_LocalScale: {x: 20, y: 2, z: 14}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1063574779 stripped
 MonoBehaviour:
@@ -459,6 +459,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726ea6d9695a0764793d69f320c2ffbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1256730012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256730014}
+  - component: {fileID: 1256730013}
+  m_Layer: 0
+  m_Name: GarbageShowAddMoney
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1256730013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256730012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728d81eced1d2c841b568a79fd4bc9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 8500323081416318125, guid: f76cb3577d7400e4497c3ff62b5a9f58, type: 3}
+  _spawnerWorker: {fileID: 2096528811}
+--- !u!4 &1256730014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256730012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.947411, y: -33.096306, z: 22.35641}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368088482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6818929136338034442, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
@@ -512,7 +557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1543569132502769184, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1543569132502769184, guid: 632131c4b2fdbc14ca9a1b0f6b2aab5d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -605,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 1930707148}
     - target: {fileID: 2245732967845897647, guid: 4120da2a1e863134e9b2a357580e6ca7, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2245732967845897647, guid: 4120da2a1e863134e9b2a357580e6ca7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366761004528246085, guid: 7aa1515bad9893c46a6a05437849bbf8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2366761004528246085, guid: 7aa1515bad9893c46a6a05437849bbf8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -860,7 +905,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2487664072143750857, guid: c831f83ca93b48946829658fc2214361, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2487664072143750857, guid: c831f83ca93b48946829658fc2214361, type: 3}
       propertyPath: m_LocalPosition.x
@@ -929,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670299, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2863896968966670299, guid: 6324f0df3777ea6438c08f12864081f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1022,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4427120657151103949, guid: 8d0a4a85fac916c4c82a9cb39fb5b0cb, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4427120657151103949, guid: 8d0a4a85fac916c4c82a9cb39fb5b0cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1091,7 +1136,7 @@ PrefabInstance:
       objectReference: {fileID: 821419684037919456}
     - target: {fileID: 7006139960351959046, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7006139960351959046, guid: f41f601ce0694a940b7fb09e655567c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1140,7 +1185,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5671499504038859719, guid: 3c5ffad3e0a46a645bc26e87820dae46, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5671499504038859719, guid: 3c5ffad3e0a46a645bc26e87820dae46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1267,7 +1312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818929136761836405, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6818929136761836405, guid: dd97c88e73fc2a5439711948ac1b2800, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1385,7 +1430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8650304194609591901, guid: 3080df3ff047de3468147b39f0cb9dc5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8650304194609591901, guid: 3080df3ff047de3468147b39f0cb9dc5, type: 3}
       propertyPath: m_LocalPosition.x

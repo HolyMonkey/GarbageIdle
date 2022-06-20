@@ -76,7 +76,7 @@ public class SpeedWorkers : MonoBehaviour
     private void SetPrice()
     {
         
-        _money += 200;
+        _money += 800;
         PlayerPrefs.SetFloat(MoneySpeed, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();

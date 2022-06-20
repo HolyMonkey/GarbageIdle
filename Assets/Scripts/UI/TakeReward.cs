@@ -47,7 +47,7 @@ public class TakeReward : MonoBehaviour
 
     private void SetReward()
     {
-        _reward += 500;
+        _reward += 1500;
         PlayerPrefs.SetFloat(TakeRewardMoney, _reward);
         gameObject.SetActive(false);
     }

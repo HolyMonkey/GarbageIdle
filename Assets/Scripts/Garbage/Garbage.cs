@@ -10,7 +10,7 @@ public class Garbage : MonoBehaviour
     private bool _highlighted = false;
     private bool _removed = false;
     private bool _visible = false;
-    private int _price = 20;
+    private int _price = 500;
 
     public bool InVisible => _visible;
     public int Price => _price;

@@ -85,7 +85,7 @@ public class AddRewardGarbage : MonoBehaviour
 
     private void SetPrice()
     {
-        _money += 400;
+        _money += 800;
         PlayerPrefs.SetFloat(SaveNameMoney, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         _textLevel.text = "lvl." + _level.ToString();
