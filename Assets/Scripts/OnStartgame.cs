@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
+using GameAnalyticsSDK;
 
 [RequireComponent(typeof(Data))]
 public class OnStartgame : MonoBehaviour

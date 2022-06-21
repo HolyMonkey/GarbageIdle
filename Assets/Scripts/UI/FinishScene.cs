@@ -15,7 +15,7 @@ public class FinishScene : MonoBehaviour
     private int _scenelevel = 1;
 
     public const string LevelSceneIndex = "IndexLevelScene";
-    public const string SceneLevelIndexName = "SceneLevelIndexName";
+    public const string SceneLevelIndexNameFinishScene = "SceneLevelIndexNameFinishScen";
     public int LevelIndex => _levelIndex;
     public string LevelSceneIndexName => LevelSceneIndex;
 
@@ -24,7 +24,7 @@ public class FinishScene : MonoBehaviour
         _data = GetComponent<Data>();
         _startLevelTime = Time.time;
         _levelIndex = _data.GetSave(LevelSceneIndex, _levelIndex);
-        _scenelevel = _data.GetSave(SceneLevelIndexName, _scenelevel);
+        _scenelevel = _data.GetSave(SceneLevelIndexNameFinishScene, _scenelevel);
     }
 
     private void Start()
@@ -81,9 +81,8 @@ public class FinishScene : MonoBehaviour
         {
             _levelIndex = 1;
         }
-        PlayerPrefs.SetInt(SceneLevelIndexName, _scenelevel);
+        PlayerPrefs.SetInt(SceneLevelIndexNameFinishScene, _scenelevel);
         PlayerPrefs.SetInt(LevelSceneIndex, _levelIndex);
-        Debug.Log("Увеличиваем на 1 уровень сцены когда заканчиваем " + _scenelevel);
     }
 
     private void FinishLevel(float startLevelTime, int levelIndex)

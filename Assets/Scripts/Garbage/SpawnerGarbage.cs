@@ -17,8 +17,8 @@ public class SpawnerGarbage : MonoBehaviour
     {
         _data = GetComponent<Data>();
         _count = _data.GetSave(_pointStart.CountGarbage, _pointStart.Count);
-
         TimeToSpawn();
+       
     }
 
     private void TimeToSpawn()
@@ -32,7 +32,7 @@ public class SpawnerGarbage : MonoBehaviour
             point = Random.Range(0, _spawnPoint.Length);
             item = Random.Range(0, _garbage.Length);
 
-            spawned = Instantiate(_garbage[item], _spawnPoint[point]);;
+            spawned = Instantiate(_garbage[item], _spawnPoint[point]);
 
             _pointStart.AddListGarbage(spawned);
             _addRewardGarbage.AddListGarbage(spawned);

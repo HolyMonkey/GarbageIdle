@@ -9,12 +9,19 @@ public class CheckingAvailability : MonoBehaviour
     {
         if(other.TryGetComponent(out Garbage garbage))
         {
-            garbage.gameObject.SetActive(false);
-            garbage.transform.position = _spawnerGarbage.transform.position;
-            garbage.CheckVisibleGarbage();
-            garbage.gameObject.SetActive(true);
-            garbage.transform.position = garbage.transform.position;
-            garbage.CheckInVisible();
+            if (garbage.Removed)
+            {
+                return;
+            }
+            else
+            {
+                garbage.gameObject.SetActive(false);
+                garbage.transform.position = _spawnerGarbage.transform.position;
+                garbage.CheckVisibleGarbage();
+                garbage.gameObject.SetActive(true);
+                garbage.transform.position = garbage.transform.position;
+                garbage.CheckInVisible();
+            }
         }
     }
 }
