@@ -2995,6 +2995,18 @@ MonoBehaviour:
   _vibrato: 10
   _randomness: 90
   _duration: 0.5
+--- !u!114 &5305803797963960619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421843102190091176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909d912c7d929da40834c6546751d871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5844066609382554188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,18 +3051,6 @@ MonoBehaviour:
   _circle: {fileID: 8187260804102524641}
   _finger: {fileID: 8101235662538522762}
   _animator: {fileID: 113088230688462206}
---- !u!114 &5305803797963960619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4421843102190091176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909d912c7d929da40834c6546751d871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6818929136068747293
 PrefabInstance:
   m_ObjectHideFlags: 0
