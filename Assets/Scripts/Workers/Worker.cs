@@ -11,6 +11,9 @@ public class Worker : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private ParticleSystem _appearanceEffect;
+    [SerializeField] private ParticleSystem _buffYellow;
+    [SerializeField] private ParticleSystem _buffGreen;
     [SerializeField] private TMP_Text _textMoney;
 
     private float _speed = 1.5f;
@@ -106,6 +109,7 @@ public class Worker : MonoBehaviour
         _pointFinish = pointFinish;
         _junkyard = junkyard;
         _player = player;
+        _appearanceEffect.Play();
     }
 
     public void ListGarbage(List<Garbage> garbage)
@@ -118,8 +122,19 @@ public class Worker : MonoBehaviour
     public void SettingSpeed()
     {
         _speed += 0.1f;
+        ActivateSpeedUpgradeEffect();
         PlayerPrefs.SetFloat("SpeedWorker", _speed);
         PlayerPrefs.SetFloat("RaiseSpeed", _raiseSpeed);
+    }
+
+    public void ActivateProfitUpgradeEffect()
+    {
+        _buffGreen.Play();
+    }
+
+    private void ActivateSpeedUpgradeEffect()
+    {
+        _buffYellow.Play();
     }
 
     private void SpecifyingGoal()
