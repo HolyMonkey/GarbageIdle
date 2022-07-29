@@ -17,14 +17,14 @@ public class AddRewardGarbage : MonoBehaviour
 
     private Data _data;
     private Tapping _tapping;
-    private string _type = "improvement";
-    private string _name = "AddRewardGarbage";
+    //private string _type = "improvement";
+    //private string _name = "AddRewardGarbage";
     private int _amount = 0;
     private int _count = 0;
     private float _money = 500;
     private int _level = 0;
 
-    private IntegrationMetric _integrationMetric = new IntegrationMetric();
+    //private IntegrationMetric _integrationMetric = new IntegrationMetric();
     private List<Garbage> _garbage = new List<Garbage>();
 
     private const string SaveNameMoney = "MoneyRewardGarbage";
@@ -60,7 +60,7 @@ public class AddRewardGarbage : MonoBehaviour
         {
             _amount += (int)_money;
             _count++;
-            _integrationMetric.OnSoftCurrencySpend(_type,_name,_amount,_count,(int)_money);
+            //_integrationMetric.OnSoftCurrencySpend(_type,_name,_amount,_count,(int)_money);
             PlayerPrefs.SetInt(SaveNameAmount, _amount);
             PlayerPrefs.SetInt(SaveNameCount, _count);
             _valueHandler.PayPurchase(_money);

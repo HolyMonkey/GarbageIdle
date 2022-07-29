@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IJunior.TypedScenes;
-using GameAnalyticsSDK;
+//using GameAnalyticsSDK;
 
 [RequireComponent(typeof(Data))]
 public class OnStartgame : MonoBehaviour
@@ -15,8 +15,8 @@ public class OnStartgame : MonoBehaviour
 
     private void Awake()
     {
-        _integrationMetric.OnGameStart();
-        _integrationMetric.SetUserProperty();
+        //_integrationMetric.OnGameStart();
+        //_integrationMetric.SetUserProperty();
         _data = GetComponent<Data>();
         _idexLevel = _data.GetSave(_finishScene.LevelSceneIndexName, _finishScene.LevelIndex);
         _finishScene.CheckLevel(_idexLevel);

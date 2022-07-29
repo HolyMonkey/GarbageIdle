@@ -15,15 +15,15 @@ public class AddWorker : MonoBehaviour
     [SerializeField] private MoneyTransfer _moneyTransfer;
     [SerializeField] private Image _imageBottonColor;
 
-    private IntegrationMetric _integrationMetric = new IntegrationMetric();
+    //private IntegrationMetric _integrationMetric = new IntegrationMetric();
 
     private Data _data;
     private Tapping _tapping;
 
     private float _money = 500;
     private int _level = 0;
-    private string _type = "improvement";
-    private string _name = "AddWorker";
+    //private string _type = "improvement";
+    //private string _name = "AddWorker";
     private int _amount = 0;
     private int _count = 0;
 
@@ -53,7 +53,7 @@ public class AddWorker : MonoBehaviour
         {
             _amount += (int)_money;
             _count++;
-            _integrationMetric.OnSoftCurrencySpend(_type, _name, _amount, _count,(int)_money);
+            //_integrationMetric.OnSoftCurrencySpend(_type, _name, _amount, _count,(int)_money);
             PlayerPrefs.SetInt(SaveNameAmount, _amount);
             PlayerPrefs.SetInt(SaveNameCount, _count);
             _valueHandler.PayPurchase(_money);

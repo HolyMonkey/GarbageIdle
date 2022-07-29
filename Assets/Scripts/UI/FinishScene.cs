@@ -29,7 +29,7 @@ public class FinishScene : MonoBehaviour
 
     private void Start()
     {
-        _integrationMetric.OnLevelStart(_scenelevel);
+        //_integrationMetric.OnLevelStart(_scenelevel);
         Close();
     }
 
@@ -93,7 +93,7 @@ public class FinishScene : MonoBehaviour
         if (completedLevelTime < 0)
             completedLevelTime *= -1;
 
-        _integrationMetric.OnLevelComplete(completedLevelTime, levelIndex);
+        //_integrationMetric.OnLevelComplete(completedLevelTime, levelIndex);
     }
 
     private void Close()

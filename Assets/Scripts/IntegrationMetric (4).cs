@@ -2,190 +2,190 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GameAnalyticsSDK;
+//using GameAnalyticsSDK;
 using UnityEngine;
 
 public class IntegrationMetric
 {
     private const string SessionCountName = "sessionCount";
-    private const string CurrentSoftName = "current_soft";
-    private const string SoftSpentCount = "soft_spent";
-    private const string _regDay = "regDay";
-    private const string ProfileId = "ProfileId";
-    private const int ProfileIdLength = 10;
+    //private const string CurrentSoftName = "current_soft";
+    //private const string SoftSpentCount = "soft_spent";
+    //private const string _regDay = "regDay";
+    //private const string ProfileId = "ProfileId";
+    //private const int ProfileIdLength = 10;
 
-    public int SessionCount;
-    public int CurrentSoft; 
-    private string _profileId;
+    //public int SessionCount;
+    //public int CurrentSoft; 
+    //private string _profileId;
 
-    public void OnGameStart()
-    {
-        Dictionary<string, object> count = new Dictionary<string, object>();
-        count.Add("count", CountSession());
-        AppMetrica.Instance.ReportEvent("game_start", count);
-        GameAnalytics.Initialize();
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game_start", count);
-    }
-
-    public void OnLevelStart(int levelIndex)
-    {
-        var levelProperty = CreateLevelProperty(levelIndex);
-        AppMetrica.Instance.ReportEvent("level_start", levelProperty);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "level_start", levelProperty);
-    }
-
-    public void OnLevelComplete(int levelComplitioTime, int levelIndex)
-    {
-        Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelComplitioTime } };
-
-        AppMetrica.Instance.ReportEvent("level_complete", userInfo);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "level_complete", userInfo);
-    }
-
-    //public void OnLevelFail(int levelFailTime, int levelIndex)
+    //public void OnGameStart()
     //{
-    //    Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelFailTime } };
-
-    //    AppMetrica.Instance.ReportEvent("fail", userInfo);
-    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
+    //    Dictionary<string, object> count = new Dictionary<string, object>();
+    //    count.Add("count", CountSession());
+    //    AppMetrica.Instance.ReportEvent("game_start", count);
+    //    GameAnalytics.Initialize();
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game_start", count);
     //}
 
-    //public void OnRestartLevel(int levelIndex)
+    //public void OnLevelStart(int levelIndex)
     //{
     //    var levelProperty = CreateLevelProperty(levelIndex);
-    //    AppMetrica.Instance.ReportEvent("restart", levelProperty);
-    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
+    //    AppMetrica.Instance.ReportEvent("level_start", levelProperty);
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "level_start", levelProperty);
     //}
+
+    //public void OnLevelComplete(int levelComplitioTime, int levelIndex)
+    //{
+    //    Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelComplitioTime } };
+
+    //    AppMetrica.Instance.ReportEvent("level_complete", userInfo);
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "level_complete", userInfo);
+    //}
+
+    ////public void OnLevelFail(int levelFailTime, int levelIndex)
+    ////{
+    ////    Dictionary<string, object> userInfo = new Dictionary<string, object> { { "level", levelIndex }, { "time_spent", levelFailTime } };
+
+    ////    AppMetrica.Instance.ReportEvent("fail", userInfo);
+    ////    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "fail", userInfo);
+    ////}
+
+    ////public void OnRestartLevel(int levelIndex)
+    ////{
+    ////    var levelProperty = CreateLevelProperty(levelIndex);
+    ////    AppMetrica.Instance.ReportEvent("restart", levelProperty);
+    ////    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "restart", levelProperty);
+    ////}
    
-    public void OnSoftCurrencySpend(string type, string name, int currencySpend,int numberUses,int money)
-    {
-        Dictionary<string, object> userInfo = new Dictionary<string, object> { { "type", type }, { "name", name }, { "amount", currencySpend }, { "count", numberUses } };
-        YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
-        userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("soft_spent").WithDelta(money));
-        ReportUserProfile(userProfile);
-        //Amplitude.Instance.logEvent("soft_spent", userInfo);
-        AppMetrica.Instance.ReportEvent(SoftSpentCount, userInfo);
-        GameAnalytics.NewDesignEvent(SoftSpentCount, userInfo);
-    }
+    //public void OnSoftCurrencySpend(string type, string name, int currencySpend,int numberUses,int money)
+    //{
+    //    Dictionary<string, object> userInfo = new Dictionary<string, object> { { "type", type }, { "name", name }, { "amount", currencySpend }, { "count", numberUses } };
+    //    YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
+    //    userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("soft_spent").WithDelta(money));
+    //    ReportUserProfile(userProfile);
+    //    //Amplitude.Instance.logEvent("soft_spent", userInfo);
+    //    AppMetrica.Instance.ReportEvent(SoftSpentCount, userInfo);
+    //    GameAnalytics.NewDesignEvent(SoftSpentCount, userInfo);
+    //}
 
-    public void OnCurrentSoftBalance(int money)
-    {
-        Dictionary<string, object> balanceMone = new Dictionary<string, object> { { "current_soft", money } };
-        balanceMone.Add("balance", CurrentBalance(money));
-        AppMetrica.Instance.ReportEvent(CurrentSoftName, balanceMone);
-        GameAnalytics.NewDesignEvent(CurrentSoftName, balanceMone);
-    }
+    //public void OnCurrentSoftBalance(int money)
+    //{
+    //    Dictionary<string, object> balanceMone = new Dictionary<string, object> { { "current_soft", money } };
+    //    balanceMone.Add("balance", CurrentBalance(money));
+    //    AppMetrica.Instance.ReportEvent(CurrentSoftName, balanceMone);
+    //    GameAnalytics.NewDesignEvent(CurrentSoftName, balanceMone);
+    //}
 
-    public void SetUserProperty()
-    {
-        //amplitude.setUserProperty("session_count", SessionCount);
+    //public void SetUserProperty()
+    //{
+    //    //amplitude.setUserProperty("session_count", SessionCount);
         
-        YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
-        userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("session_count").WithDelta(SessionCount));
-        ReportUserProfile(userProfile);
+    //    YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
+    //    userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("session_count").WithDelta(SessionCount));
+    //    ReportUserProfile(userProfile);
 
-        if (PlayerPrefs.HasKey(_regDay) == false)
-        {
-            RegDay();
-        }
-        else
-        {
-            int firstDay = PlayerPrefs.GetInt(_regDay);
-            int daysInGame = DateTime.Now.Day - firstDay;
+    //    if (PlayerPrefs.HasKey(_regDay) == false)
+    //    {
+    //        RegDay();
+    //    }
+    //    else
+    //    {
+    //        int firstDay = PlayerPrefs.GetInt(_regDay);
+    //        int daysInGame = DateTime.Now.Day - firstDay;
             
-            DaysInGame( daysInGame);
-        }
-    }
+    //        DaysInGame( daysInGame);
+    //    }
+    //}
 
-    private void RegDay()
-    {
-        //amplitude.setUserProperty("reg_day", DateTime.Now.ToString());
-        Dictionary<string, object> count = new Dictionary<string, object>();
-        count.Add("red_day", DateTime.Now.ToString());
-        YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
-        userProfile.Apply(YandexAppMetricaAttribute.CustomString("reg_day").WithValue(DateTime.Now.ToString()));
-        ReportUserProfile(userProfile);
+    //private void RegDay()
+    //{
+    //    //amplitude.setUserProperty("reg_day", DateTime.Now.ToString());
+    //    Dictionary<string, object> count = new Dictionary<string, object>();
+    //    count.Add("red_day", DateTime.Now.ToString());
+    //    YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
+    //    userProfile.Apply(YandexAppMetricaAttribute.CustomString("reg_day").WithValue(DateTime.Now.ToString()));
+    //    ReportUserProfile(userProfile);
         
-        PlayerPrefs.SetInt(_regDay, DateTime.Now.Day);
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, _regDay, count);
-    }
+    //    PlayerPrefs.SetInt(_regDay, DateTime.Now.Day);
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, _regDay, count);
+    //}
 
-    private void DaysInGame( int daysInGame)
-    {
-        Dictionary<string, object> counts = new Dictionary<string, object>();
-        counts.Add("days_in_game", daysInGame);
-        //amplitude.setUserProperty("days_in_game", daysInGame);
-        YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
-        userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("days_in_game").WithDelta(daysInGame));
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "days_in_game", counts);
-        ReportUserProfile(userProfile);
-    }
+    //private void DaysInGame( int daysInGame)
+    //{
+    //    Dictionary<string, object> counts = new Dictionary<string, object>();
+    //    counts.Add("days_in_game", daysInGame);
+    //    //amplitude.setUserProperty("days_in_game", daysInGame);
+    //    YandexAppMetricaUserProfile userProfile = new YandexAppMetricaUserProfile();
+    //    userProfile.Apply(YandexAppMetricaAttribute.CustomCounter("days_in_game").WithDelta(daysInGame));
+    //    GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "days_in_game", counts);
+    //    ReportUserProfile(userProfile);
+    //}
 
-    private void ReportUserProfile(YandexAppMetricaUserProfile userProfile)
-    {
-        AppMetrica.Instance.SetUserProfileID(GetProfileId());
-        AppMetrica.Instance.ReportUserProfile(userProfile);
-    }
+    //private void ReportUserProfile(YandexAppMetricaUserProfile userProfile)
+    //{
+    //    AppMetrica.Instance.SetUserProfileID(GetProfileId());
+    //    AppMetrica.Instance.ReportUserProfile(userProfile);
+    //}
 
-    private string GetProfileId()
-    {
-        if (PlayerPrefs.HasKey(ProfileId))
-        {
-            _profileId = PlayerPrefs.GetString(ProfileId);
-        }
-        else
-        {
-            _profileId = GenerateProfileId(ProfileIdLength);
-            PlayerPrefs.SetString(ProfileId, _profileId);
-        }
+    //private string GetProfileId()
+    //{
+    //    if (PlayerPrefs.HasKey(ProfileId))
+    //    {
+    //        _profileId = PlayerPrefs.GetString(ProfileId);
+    //    }
+    //    else
+    //    {
+    //        _profileId = GenerateProfileId(ProfileIdLength);
+    //        PlayerPrefs.SetString(ProfileId, _profileId);
+    //    }
 
-        return _profileId;
-    }
+    //    return _profileId;
+    //}
 
-    private string GenerateProfileId(int length)
-    {
-        const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+    //private string GenerateProfileId(int length)
+    //{
+    //    const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-        var random = new System.Random();
+    //    var random = new System.Random();
 
-        return new string(Enumerable.Repeat(chars, length)
-            .Select(letter => letter[random.Next(letter.Length)]).ToArray());
-    }
+    //    return new string(Enumerable.Repeat(chars, length)
+    //        .Select(letter => letter[random.Next(letter.Length)]).ToArray());
+    //}
 
-    private int CurrentBalance(int money)
-    {
-        int balanceMoney = 0;
+    //private int CurrentBalance(int money)
+    //{
+    //    int balanceMoney = 0;
        
-        if (PlayerPrefs.HasKey(CurrentSoftName))
-        {
-            balanceMoney = PlayerPrefs.GetInt(CurrentSoftName);
-        }
-        balanceMoney = money;
-        CurrentSoft = balanceMoney;
-        PlayerPrefs.SetInt(CurrentSoftName, balanceMoney);
-        return balanceMoney;
-    }
+    //    if (PlayerPrefs.HasKey(CurrentSoftName))
+    //    {
+    //        balanceMoney = PlayerPrefs.GetInt(CurrentSoftName);
+    //    }
+    //    balanceMoney = money;
+    //    CurrentSoft = balanceMoney;
+    //    PlayerPrefs.SetInt(CurrentSoftName, balanceMoney);
+    //    return balanceMoney;
+    //}
 
-    private Dictionary<string, object> CreateLevelProperty( int levelIndex)
-    {
-        Dictionary<string, object> level = new Dictionary<string, object>();
-        level.Add("level", levelIndex);
+    //private Dictionary<string, object> CreateLevelProperty( int levelIndex)
+    //{
+    //    Dictionary<string, object> level = new Dictionary<string, object>();
+    //    level.Add("level", levelIndex);
 
-        return level;
-    }
+    //    return level;
+    //}
 
-    private int CountSession()
-    {
-        int count = 1;
-        if (PlayerPrefs.HasKey(SessionCountName))
-        {
-            count = PlayerPrefs.GetInt(SessionCountName);
-            count++;
-        }
+    //private int CountSession()
+    //{
+    //    int count = 1;
+    //    if (PlayerPrefs.HasKey(SessionCountName))
+    //    {
+    //        count = PlayerPrefs.GetInt(SessionCountName);
+    //        count++;
+    //    }
 
-        PlayerPrefs.SetInt(SessionCountName, count);
-        SessionCount = count;
+    //    PlayerPrefs.SetInt(SessionCountName, count);
+    //    SessionCount = count;
 
-        return count;
-    }
+    //    return count;
+    //}
 }
