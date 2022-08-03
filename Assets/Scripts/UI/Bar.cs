@@ -34,6 +34,8 @@ public class Bar : MonoBehaviour
     public void OnValueChangad(int value,int maxValue)
     {
         _slider.fillAmount = (float)value / maxValue;
+        //if (_slider.fillAmount >= 1)
+        //    RaiseLevel();
     }
 
     public void RaiseLevel()
