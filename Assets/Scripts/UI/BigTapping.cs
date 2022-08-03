@@ -43,7 +43,7 @@ public class BigTapping : MonoBehaviour
         {
             InvisibleBig();
             Visible();
-            _animatorClick.SetTrigger(AnimatorBigCircle);
+            //_animatorClick.SetTrigger(AnimatorBigCircle);
             CheckingTime();
         }
     }
@@ -53,7 +53,7 @@ public class BigTapping : MonoBehaviour
         if (_circleBig.enabled == false)
         {
             VisibleBig();
-            _animatorBigClick.SetTrigger(AnimatorBigCircle);
+            //_animatorBigClick.SetTrigger(AnimatorBigCircle);
             _ready = true;
         }
         else
@@ -84,14 +84,14 @@ public class BigTapping : MonoBehaviour
 
     private void Invisible()
     {
-        _animatorClick.SetTrigger(AnimatorCircleIdle);
+        //_animatorClick.SetTrigger(AnimatorCircleIdle);
         _circle.enabled = false;
         _finger.enabled = false;
     }
 
     private void InvisibleBig()
     {
-        _animatorBigClick.SetTrigger(AnimatorCircleIdle);
+        //_animatorBigClick.SetTrigger(AnimatorCircleIdle);
         _circleBig.enabled = false;
         _fingerBig.enabled = false;
     }

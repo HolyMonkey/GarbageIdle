@@ -13,6 +13,7 @@ public class FinishScene : MonoBehaviour
     private float _startLevelTime;
     private int _maxLevelIndex = 3;
     private int _scenelevel = 1;
+    private MenuDisplay _menuDisplay;
 
     public const string LevelSceneIndex = "IndexLevelScene";
     public const string SceneLevelIndexNameFinishScene = "SceneLevelIndexNameFinishScen";
@@ -21,6 +22,7 @@ public class FinishScene : MonoBehaviour
 
     private void Awake()
     {
+        _menuDisplay = FindObjectOfType<MenuDisplay>();
         _data = GetComponent<Data>();
         _startLevelTime = Time.time;
         _levelIndex = _data.GetSave(LevelSceneIndex, _levelIndex);
@@ -29,6 +31,7 @@ public class FinishScene : MonoBehaviour
 
     private void Start()
     {
+        
         //_integrationMetric.OnLevelStart(_scenelevel);
         Close();
     }
@@ -39,21 +42,25 @@ public class FinishScene : MonoBehaviour
         _levelIndex = SceneManager.GetActiveScene().buildIndex;
         FinishLevel(_startLevelTime, _scenelevel);
         SetLevelIdex();
+        _menuDisplay.Show();
     }
 
     public void NextSceneTwo()
     {
         SceneTwo.Load();
+        _menuDisplay.Hide();
     }
 
     public void NextSceneThree()
     {
         SceneThree.Load();
+        _menuDisplay.Hide();
     }
 
     public void NextSceneOne()
     {
         SampleScene.Load();
+        _menuDisplay.Hide();
     }
 
     public void CheckLevel(int index)
