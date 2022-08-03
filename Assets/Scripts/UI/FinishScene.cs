@@ -42,6 +42,7 @@ public class FinishScene : MonoBehaviour
         _levelIndex = SceneManager.GetActiveScene().buildIndex;
         FinishLevel(_startLevelTime, _scenelevel);
         SetLevelIdex();
+        //_menuDisplay = FindObjectOfType<MenuDisplay>();
         _menuDisplay.Show();
     }
 
