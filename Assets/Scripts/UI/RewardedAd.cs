@@ -14,9 +14,12 @@ public class RewardedAd : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         InterstitialAd.Show();
+#endif
         _valueHandler = FindObjectOfType<ValueHandler>();
     }
+
     private Action _adOpened;
     private Action _adRewarded;
     private Action _adClosed;

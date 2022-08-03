@@ -17,7 +17,9 @@ public class LeaderBoardDisplay : MonoBehaviour
 
     private void Awake()
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         YandexGamesSdk.CallbackLogging = true;
+#endif
         //Character character = FindObjectOfType<Character>();
         //_money = (int)character.Money;
         _level = PlayerPrefs.GetInt("SetLevelBar");

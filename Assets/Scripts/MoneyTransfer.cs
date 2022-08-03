@@ -56,12 +56,12 @@ public class MoneyTransfer : MonoBehaviour
     {
         if (money > 1000)
         {
-            text.text = (money / 1000).ToString("F") + "K$";
+            text.text = (money / 1000).ToString("F") + "K";
         }
         else if (money > 10000)
-            text.text = (money / 10000).ToString("f") + "B$";
+            text.text = (money / 10000).ToString("f") + "B";
         else
-            text.text = money.ToString() + "$";
+            text.text = money.ToString();
 
         GarbageColorChangedButton?.Invoke(_valueHandler.Money, _addRewardGarbage.Money, _addRewardGarbage.ImageButton);
         WorkerColorChangedButton?.Invoke(_valueHandler.Money, _addWorker.Money,_addWorker.ImageButtonColor);

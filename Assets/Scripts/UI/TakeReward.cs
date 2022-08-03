@@ -11,7 +11,7 @@ public class TakeReward : MonoBehaviour
     [SerializeField] private TMP_Text _moneyInfoReward;
     [SerializeField] private ShowReward _showReward;
 
-    private float _reward = 1000;
+    private float _reward = 500;
     private float _rewardInfo;
 
     public float RewardInfo => _rewardInfo;
@@ -47,7 +47,7 @@ public class TakeReward : MonoBehaviour
 
     private void SetReward()
     {
-        _reward += 1000;
+        _reward += 1500;
         PlayerPrefs.SetFloat(TakeRewardMoney, _reward);
         gameObject.SetActive(false);
     }
