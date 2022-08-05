@@ -43,7 +43,7 @@ public class AddWorker : MonoBehaviour
         _level = _data.GetSave(LevelAddWorker, _level);
         _spawner.AddCount(_level);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
-        _textLevel.text = "lvl." + _level.ToString();
+        _textLevel.text = /*"lvl." +*/ _level.ToString();
     }
 
 
@@ -70,7 +70,7 @@ public class AddWorker : MonoBehaviour
     private void SetPrice()
     {
         _money += 2300;
-        _textLevel.text = "lvl." + _level;
+        _textLevel.text = /*"lvl." + */_level.ToString();
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
         PlayerPrefs.SetFloat(MoneyAddWorker, _money);
     }

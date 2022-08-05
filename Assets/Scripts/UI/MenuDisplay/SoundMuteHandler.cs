@@ -45,7 +45,7 @@ public class SoundMuteHandler : MonoBehaviour
         else
         {
             AudioListener.pause = false;
-            AudioListener.volume = 0.8f;
+            AudioListener.volume = 0.5f;
             _image.sprite = _unmute;
         }
     }
@@ -67,7 +67,7 @@ public class SoundMuteHandler : MonoBehaviour
             _isSoundMute = false;
             _image.sprite = _unmute;
             PlayerPrefs.SetInt("ISSOUND", Convert.ToInt32(_isSoundMute));
-            AudioListener.volume = 0.8f;
+            AudioListener.volume = 0.5f;
         }
         Debug.Log(_isSoundMute);
     }

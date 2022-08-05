@@ -34,7 +34,7 @@ public class ShowReward : MonoBehaviour
         //_moneyInfoReward.alpha = Mathf.MoveTowards(_moneyInfoReward.alpha, 1, 1 * Time.deltaTime);
         _animator.SetTrigger("Reward");
         StartCoroutine(PlayParticle());
-        _moneyInfoReward.text = "Reward +$" + _takeReward.RewardInfo.ToString();
+        _moneyInfoReward.text = " +$" + _takeReward.RewardInfo.ToString();
     }
 
     private IEnumerator PlayParticle()

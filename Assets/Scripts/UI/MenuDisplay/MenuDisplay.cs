@@ -2,6 +2,7 @@ using Agava.YandexGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuDisplay : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class MenuDisplay : MonoBehaviour
     [SerializeField] private RewardedAd _rewardedAd;
     [SerializeField] private LeaderBoardButton _leaderBoardButton;
     [SerializeField] private RewardedAdView _rewardedAdView;
+    [SerializeField] private Button _rewardedAdButton;
 
     private void Awake()
     {
         //PlayerPrefs.DeleteAll();
+
     }
 
 
@@ -20,17 +23,21 @@ public class MenuDisplay : MonoBehaviour
     {
         
         Hide();
+        //gameObject.SetActive(true);
     }
 
     public void Show()
     {
-        _rewardedAd.gameObject.SetActive(true);
-        _leaderBoardButton.gameObject.SetActive(true);
+
+        _rewardedAdButton.gameObject.SetActive(true);
         _rewardedAdView.ShowReward();
+        _leaderBoardButton.gameObject.SetActive(true);
+
     }
     public void Hide()
     {
-        _rewardedAd.gameObject.SetActive(false);
+        _rewardedAdView.ShowReward();
+        _rewardedAdButton.gameObject.SetActive(false);
         _leaderBoardButton.gameObject.SetActive(false);
     }
 

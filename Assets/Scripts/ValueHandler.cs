@@ -16,10 +16,16 @@ public class ValueHandler : MonoBehaviour
 
     private const string Balance = "Money";
 
-    private void Start()
+    private void Awake()
     {
         _data = GetComponent<Data>();
         _money = _data.GetSaveFloat(Balance, _money);
+    }
+
+    private void Start()
+    {
+        //_data = GetComponent<Data>();
+        //_money = _data.GetSaveFloat(Balance, _money);
         MoneyChanged?.Invoke(_money);
     }
 

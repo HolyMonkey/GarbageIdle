@@ -46,7 +46,7 @@ public class AddRewardGarbage : MonoBehaviour
         _count = _data.GetSave(SaveNameCount, _count);
 
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
-        _textLevel.text = "lvl." + _level.ToString();
+        _textLevel.text = /*"lvl." + */_level.ToString();
     }
 
     public void AddListGarbage(Garbage garbage)
@@ -86,6 +86,6 @@ public class AddRewardGarbage : MonoBehaviour
         _money += 800;
         PlayerPrefs.SetFloat(SaveNameMoney, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
-        _textLevel.text = "lvl." + _level.ToString();
+        _textLevel.text =/* "lvl." + */_level.ToString();
     }
 }

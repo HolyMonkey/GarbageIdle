@@ -42,7 +42,7 @@ public class SpeedWorkers : MonoBehaviour
         _level = _data.GetSave(SpeedLevel, _level);
         _amount = _data.GetSave(SaveNameAmount, _amount);
         _count = _data.GetSave(SaveNameCount, _count);
-        _textLevel.text = "lvl." + _level.ToString();
+        _textLevel.text =/* "lvl." + */_level.ToString();
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
     }
 
@@ -79,6 +79,6 @@ public class SpeedWorkers : MonoBehaviour
         _money += 800;
         PlayerPrefs.SetFloat(MoneySpeed, _money);
         _textMoney = _moneyTransfer.CurrencyConversion(_money, _textMoney);
-        _textLevel.text = "lvl." + _level.ToString();
+        _textLevel.text =/* "lvl." + */_level.ToString();
     }
 }

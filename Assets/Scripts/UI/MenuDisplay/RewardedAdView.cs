@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,6 +18,7 @@ public class RewardedAdView : MonoBehaviour
     private void Start()
     {
         
+        _moneyInfoReward = GetComponent<TMP_Text>();
         ShowReward();
         //_takeReward.gameObject.SetActive(true);
         //_moneyInfoReward.text = ("+" + _takeReward.RewardInfo/1000).ToString() + " K$";
@@ -28,11 +30,17 @@ public class RewardedAdView : MonoBehaviour
     public void ShowReward()
     {
         _moneyInfoReward = GetComponent<TMP_Text>();
-        _takeReward = FindObjectOfType<TakeReward>();
+        //_takeReward = FindObjectOfType<TakeReward>();
         _moneyTransfer = FindObjectOfType<MoneyTransfer>();
         _valueHandler = FindObjectOfType<ValueHandler>();
+        float money = 200;
 
-        _moneyInfoReward = _moneyTransfer.CurrencyConversion(_valueHandler.Money / 3, _moneyInfoReward);
+        if (money < (_valueHandler.Money / 4))
+        {
+            money = (float)Math.Round((_valueHandler.Money / 4),0);
+        }
+
+        _moneyInfoReward = _moneyTransfer.CurrencyConversion(money, _moneyInfoReward);
     }
 
 }
